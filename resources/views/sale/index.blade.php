@@ -125,7 +125,7 @@
                                     <div class="col-sm-7">
                                         <div class="input-group">
                                             <div class="input-group-addon">$</div>
-                                            <input type="number" class="form-control" name="payment" id="add_payment"  required/>
+                                            <input type="number" class="form-control" name="payment" id="add_payment" ng-model="add_payment" ng-init="add_payment =0" required/>
                                         </div>
                                     </div>
                                 </div>
