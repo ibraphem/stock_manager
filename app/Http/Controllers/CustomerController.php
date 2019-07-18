@@ -53,6 +53,7 @@ class CustomerController extends Controller
         $this->validator($request->all())->validate();
         // store
         $customers = new Customer;
+        
         $customers->saveCustomer($request->all());
         if (!empty(Input::get('payment'))) {
             $payment = new CustomerPayment;
@@ -82,12 +83,17 @@ class CustomerController extends Controller
         $customer = Customer::findOrFail($id);
         $total_sales = Sale::where('customer_id', $id)->count();
         $total_dues = Sale::where('customer_id', $id)->sum('dues');
+        $sum_customer_payment = Sale::where('customer_id', $id)->sum('payment');
         $total_customer_payment = CustomerPayment::where('customer_id', $id)->sum('payment');
         $saleReport_dues = Sale::where([['customer_id', $id],['dues', '>', 0.00], ['status', '=', 0]])->paginate(10);
-        $saleReport_completed = Sale::where([['customer_id', $id],['status', '=', 1]])->where([['customer_id', $id],['dues', '>', 0.00]])->paginate(10);
+        $saleReport_completed = Sale::where([['customer_id', $id],['status', '=', 1]])->where([['customer_id', $id],['dues', '=', 0.00]])->paginate(10);
         $customer_payments = CustomerPayment::where('customer_id', $id)->latest()->paginate(3);
         $sale_payments = DB::select("select * from sales INNER JOIN sale_payments ON sales.id = sale_payments.sale_id where customer_id =".$id." ORDER BY sale_payments.id DESC LIMIT 5");
-        return view('customer.show', compact('total_customer_payment', 'customer', 'saleReport_completed', 'saleReport_dues', 'total_sales', 'total_dues', 'customer_payments', 'sale_payments'));
+       
+        $total_customer_payment = $sum_customer_payment+ $total_dues;
+      
+       
+        return view('customer.show', compact('total_customer_payment','sum_customer_payment','total_customer_payment', 'customer', 'saleReport_completed', 'saleReport_dues', 'total_sales', 'total_dues', 'customer_payments', 'sale_payments'));
     }
 
     /**

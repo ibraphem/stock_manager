@@ -98,6 +98,7 @@ class HomeController extends Controller
                 'b'=>$weeklyincome,
             ];
             $chartArray[] =  $chart;
+           
         }
         return $chartArray;
     }

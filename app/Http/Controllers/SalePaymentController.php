@@ -40,7 +40,7 @@ class SalePaymentController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
+    {   
         $this->validator($request->all())->validate();
         $payment = new SalePayment;
         $payment->payment = $request->payment;
@@ -51,6 +51,7 @@ class SalePaymentController extends Controller
         $sale = Sale::findOrFail($request->sale_id);
         $sale->payment = $sale->payment + $request->payment;
         $dues = $sale->dues = $sale->dues - $request->payment;
+        if($due = 0.00)$sale->status = 1;
         $sale->update();
         $payment->user_id = Auth::user()->id;
         $payment->dues = $dues;
@@ -59,7 +60,13 @@ class SalePaymentController extends Controller
         $customer = Customer::where('id', $sale->customer_id)->first();
         $customer->prev_balance = $customer->prev_balance - $request->payment;
         $customer->update();
-        Session::flash('message', __('Sale Payment added successfully!'));
+        if($due = 0.00){
+            Session::flash('message', __('Sales Payment added successfully and The sale is now Completed!'));
+        }
+        else{
+            Session::flash('message', __('Sales Payment added successfully!'));
+        }
+        
         return redirect()->back();
     }
 

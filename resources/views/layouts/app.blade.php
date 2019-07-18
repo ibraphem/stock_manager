@@ -12,11 +12,15 @@
 	<link href="{{ asset('/css/app.css') }}" rel="stylesheet">
 	<link rel="stylesheet" href="{{asset('/css/bootstrap.min.css')}}">
 	<link rel="stylesheet" href="{{asset('/css/dataTables.bootstrap.min.css')}}">
+	<link rel="stylesheet" href="{{asset('/css/font-awesome.min.css')}}">
 	<link href="{{ asset('/css/style.css') }}" rel="stylesheet">
 	<link rel="stylesheet" href="{{asset('dist/css/skins/_all-skins.min.css')}}">
 	<link href="{{ asset('/dist/css/AdminLTE.css') }}" rel="stylesheet">
 	<link href="{{ asset('/css/style.css') }}" rel="stylesheet">
-	<!-- Fonts -->
+	<link href="{{ asset('/css/newstyle.css') }}" rel="stylesheet">
+	<script src="{{asset('js/bootstrap-show-password.min.js')}}"></script>
+	<script src="{{asset('js/bootstrap-show-password.js')}}"></script>
+<!-- Fonts -->
 	<link href='http://fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
 	
 	@if(!empty(DB::table('flexible_pos_settings')->first()->fevicon_path))
@@ -46,9 +50,9 @@
 	<script src="{{asset('js/app.js')}}"></script>
 	<script src="{{asset("/js/filesaver.js")}}"></script>
 	<script src="{{asset("/js/jquerywordexport.js")}}"></script>
-	<script src="{{asset('js/jquery.dataTables.min.js')}}"></script>
+	<script src="{{asset('js/jquery.dataTables.min.js')}}"></script>	
 	<!-- AdminLTE App -->
-	<script src="{{asset('dist/js/adminlte.min.js')}}"></script>
+
 @yield('script')
 </div>
 </body>

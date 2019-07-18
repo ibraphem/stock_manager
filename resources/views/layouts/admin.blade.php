@@ -14,6 +14,7 @@
   @endif
   <!-- Bootstrap 3.3.7 -->
   <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
+  <link rel="stylesheet" href="{{asset('css/newstyle.css')}}">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="{{asset('css/font-awesome.min.css')}}">
 

@@ -61,8 +61,9 @@ class EmployeeController extends Controller
         // store
         $users = new User;
         $users->name = Input::get('name');
-        $users->email = Input::get('email');
-        $users->password = Hash::make(Input::get('password'));
+        $users->email = Input ::get('email');
+        //$users->password = Hash::make(Input::get('password'));
+        $users->password = encrypt(Input::get('password'));
         $users->save();
 
         Session::flash('message', __('You have successfully added employee'));
@@ -76,8 +77,19 @@ class EmployeeController extends Controller
      * @return Response
      */
     public function edit($id)
-    {
-        $employees = User::find($id);
+    {   
+       
+        $employees = User::find($id); 
+        /*
+        if (Hash::check('plain-text', $hashedPassword)) {
+            // The passwords match...
+        }*/
+        try {
+            $decrypted = decrypt($employees->password);
+            $employees->password = $decrypted;//dd($employees);
+         } catch (DecryptException $e) {
+            dd("Invalid password description Algorithm");
+         }
         return view('employee.edit')
             ->with('employee', $employees);
     }
@@ -109,7 +121,8 @@ class EmployeeController extends Controller
                 $users->name = Input::get('name');
                 $users->email = Input::get('email');
                 if (!empty(Input::get('password'))) {
-                    $users->password = Hash::make(Input::get('password'));
+                    //$users->password = Hash::make(Input::get('password'));
+                    $users->password = encrypt(Input::get('password'));
                 }
                 $users->save();
                 // redirect

@@ -33,42 +33,21 @@ if (trim($customer->avatar) != 'no-foto.png') {
           <h3 class="profile-username text-center">{{$customer->name}}</h3>
           <ul class="list-group list-group-unbordered">
             <li class="list-group-item">
-              <b>{{__('Balance')}} </b> <a class="pull-right">{{$customer->prev_balance}}</a>
+            <b>{{__('Sales Count')}} </b> <a class="pull-right">{{$total_sales}}</a>
             </li>
             <li class="list-group-item hidden-print">
-              <b>{{__('Total Sales')}} </b> <a class="pull-right">{{number_format($total_sales,2)}}</a>
+            <b>{{__('Total Sales ')}} </b> <a class="pull-right">&#8358;{{number_format( $total_customer_payment , 2 , '.' , ',' )}}</a>
             </li>
+            <li class="list-group-item hidden-print">
+              <b>{{__('Overall Payment')}} </b> <a class="pull-right">&#8358;{{number_format( $sum_customer_payment , 2 , '.' , ',' )}}</a>
+            </li>
+            <li class="list-group-item" style="background-color:#ffb3b3; padding:10px;">
+              <b>{{__('Total Balance')}} </b> <a  class="pull-right">&#8358;{{number_format( $total_dues , 2 , '.' , ',' )}}</a>
+            </li>
+            
           </ul>
-          <a class="btn btn-primary btn-block hidden-print" href="#" data-toggle="modal" data-target="#myModal"><b>{{__('Add Payment')}}</b></a>
             <div class="modal fade" id="myModal" role="dialog">
-            <div class="modal-dialog modal-sm">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <button type="button" class="close" data-dismiss="modal">&times;</button>
-                  <h4 class="modal-title">{{__('Add Payment')}}</h4>
-                </div>
-                <div class="modal-body">
-                  {{ Form::open(['route'=>'customerpayments.store']) }}
-                    <div class="form-group">
-                        {{ Form::select('payment_type', ['Cash' => 'Cash', 'Check' => 'Check', 'DebitCard' => 'Debit Card', 'CreditCard' => 'Credit Card'], null, array('class' => 'form-control','placeholder'=>'Select a payment type','required')) }}
-                    </div>
-                  <div class="form-group">
-                    {{ Form::hidden('customer_id', $customer->id, ['class'=>'form-control']) }}
-                    {{ Form::number('payment', null, ['class'=>'form-control', 'placeholder'=>'Amount', 'required']) }}
-                  </div>
-                    <div class="form-group">
-                        {{ Form::text('comments', null, ['class'=>'form-control','placeholder'=>'Comments']) }}
-                    </div>
-                  <div class="form-group">
-                    {{ Form::submit('Add Payment', ['class'=>'btn btn-primary']) }}
-                  </div>
-                  {{ Form::close() }}
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-default" data-dismiss="modal">{{__('Close')}}</button>
-                </div>
-              </div>
-            </div>
+            
           </div>
         </div>
         <!-- /.box-body -->
@@ -91,10 +70,11 @@ if (trim($customer->avatar) != 'no-foto.png') {
               </tr>
             </thead>
             <tbody>
+                  
               @foreach($customer_payments as $customer_payment)
               <tr>
                 <td>{{$customer_payment->created_at}}</td>
-                <td>{{$customer_payment->payment}}</td>
+                <td>&#8358;{{number_format($customer_payment->payment , 2 , '.' , ',' )}}</td>
                 <?php $user= DB::table('users')->where('id', $customer_payment->user_id)->first(); ?>
                 <td>{{$user->name}}</td>
               </tr>
@@ -102,10 +82,11 @@ if (trim($customer->avatar) != 'no-foto.png') {
               <tr>
                 <td colspan="3" style="background: #3c8dbc;padding: 2px;"></td>
               </tr>
+              
               @foreach($sale_payments as $sale_payment)
               <tr>
                 <td>{{$sale_payment->created_at}}</td>
-                <td>{{$sale_payment->payment}}</td>
+                <td>&#8358;{{number_format($sale_payment->payment, 2 , '.' , ',' )}}</td>
                 <?php $user= DB::table('users')->where('id', $sale_payment->user_id)->first(); ?>
                 <td>{{$user->name}}</td>
               </tr>
@@ -123,7 +104,7 @@ if (trim($customer->avatar) != 'no-foto.png') {
       <div class="nav-tabs-custom">
         <ul class="nav nav-tabs">
           <li class="active"><a href="#saledues" data-toggle="tab">{{__('Sales Open')}}</a></li>
-          <li><a href="#salescompleted" data-toggle="tab">{{__('Sales Closed')}}</a></li>
+          <li ><a href="#salescompleted" data-toggle="tab">{{__('Sales Completed')}}</a></li>
         </ul>
         <div class="tab-content">
           <div class="active tab-pane" id="saledues">
@@ -156,9 +137,9 @@ if (trim($customer->avatar) != 'no-foto.png') {
                           <td>{{DB::table('sale_items')->where('sale_id', $value->id)->sum('quantity')}}</td>
                           <td>{{ $value->user->name }}</td>
                           
-                          <td>${{$value->grand_total}}</td>
-                          <td>${{$value->payment}} </td>
-                          <td>${{$value->dues}}</td>
+                          <td>&#8358;{{number_format($value->grand_total, 2 , '.' , ',' )}}</td>
+                          <td>&#8358;{{number_format($value->payment, 2 , '.' , ',' )}} </td>
+                          <td>&#8358;{{number_format($value->dues, 2 , '.' , ',' )}}</td>
                           <td>{{ $value->payment_type }}</td>
                           <td>{{ $value->comments }}</td>
                           <td class="hidden-print">
@@ -278,10 +259,10 @@ if (trim($customer->avatar) != 'no-foto.png') {
                           <td>{{DB::table('sale_items')->where('sale_id', $value->id)->sum('quantity')}}</td>
                           <td>{{ $value->user->name }}</td>
                           
-                          <td>${{$value->grand_total}}</td>
+                          <td>&#8358;{{number_format($value->grand_total, 2 , '.' , ',' )}}</td>
                           
-                          <td>${{$value->payment}} </td>
-                          <td>${{$value->dues}}</td>
+                          <td>&#8358;{{number_format($value->payment, 2 , '.' , ',' )}} </td>
+                          <td>&#8358;{{number_format($value->dues, 2 , '.' , ',' )}}</td>
                           
                           <td>{{ $value->payment_type }}</td>
                           <td>{{ $value->comments }}</td>
