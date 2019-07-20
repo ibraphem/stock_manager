@@ -24,7 +24,7 @@ class CustomersTableSeeder extends Seeder
                 'state' => $faker->state,
                 'zip' => $faker->postcode,
                 'company_name' => $faker->company,
-                'account' =>$faker->creditCardType,
+                'account' =>$faker->TransferType,
                 'prev_balance' => '10000',
                 'payment'=>$faker->randomNumber($nbDigits = 5, $strict = true),
                 'created_at' => date("Y-m-d H:i:s"),

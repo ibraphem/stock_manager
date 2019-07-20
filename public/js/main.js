@@ -15,10 +15,10 @@ function onChange() {
 
 // check permissions check all if checked
 function checkPermissions(elem) {
-    var boxCheck = $(elem).parents();
+    var boxcheck = $(elem).parents();
     if($(elem).is(":checked")){
-        boxCheck.children('div.box-body').children('p').children('input').attr('checked', 'checked');
+        boxcheck.children('div.box-body').children('p').children('input').attr('checked', 'checked');
     } else {
-        boxCheck.children('div.box-body').children('p').children('input').removeAttr('checked');
+        boxcheck.children('div.box-body').children('p').children('input').removeAttr('checked');
     }
 }

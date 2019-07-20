@@ -886,10 +886,10 @@ throw new Error('AdminLTE requires jQuery')
   var DataKey = 'lte.todolist';
 
   var Default = {
-    onCheck  : function (item) {
+    oncheck  : function (item) {
       return item;
     },
-    onUnCheck: function (item) {
+    onUncheck: function (item) {
       return item;
     }
   };
@@ -914,7 +914,7 @@ throw new Error('AdminLTE requires jQuery')
   TodoList.prototype.toggle = function (item) {
     item.parents(Selector.li).first().toggleClass(ClassName.done);
     if (!item.prop('checked')) {
-      this.unCheck(item);
+      this.uncheck(item);
       return;
     }
 
@@ -922,11 +922,11 @@ throw new Error('AdminLTE requires jQuery')
   };
 
   TodoList.prototype.check = function (item) {
-    this.options.onCheck.call(item);
+    this.options.oncheck.call(item);
   };
 
-  TodoList.prototype.unCheck = function (item) {
-    this.options.onUnCheck.call(item);
+  TodoList.prototype.uncheck = function (item) {
+    this.options.onUncheck.call(item);
   };
 
   // Private

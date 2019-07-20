@@ -199,10 +199,10 @@ $(function () {
 
   /* The todo list plugin */
   $('.todo-list').todoList({
-    onCheck  : function () {
+    oncheck  : function () {
       window.console.log($(this), 'The element has been checked');
     },
-    onUnCheck: function () {
+    onUncheck: function () {
       window.console.log($(this), 'The element has been unchecked');
     }
   });

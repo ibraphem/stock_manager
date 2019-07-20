@@ -171,7 +171,7 @@ if (trim($customer->avatar) != 'no-foto.png') {
                                       <div class="modal-body">
                                         {{ Form::open(['route'=>'salepayments.store']) }}
                                         <div class="form-group">
-                                        {{ Form::select('payment_type', ['Cash' => 'Cash', 'Check' => 'Check', 'DebitCard' => 'Debit Card', 'CreditCard' => 'Credit Card'], null, array('class' => 'form-control','placeholder'=>'Select a payment type','required')) }}
+                                        {{ Form::select('payment_type', ['Cash' => 'Cash', 'check' => 'check', 'DebitCard' => 'Debit Card', 'Transfer' => 'Transfer'], null, array('class' => 'form-control','placeholder'=>'Select a payment type','required')) }}
                                         </div>
                                         <div class="form-group">
                                           {{ Form::hidden('sale_id', $value->id, ['class'=>'form-control']) }}
@@ -295,7 +295,7 @@ if (trim($customer->avatar) != 'no-foto.png') {
                                     <div class="modal-body">
                                       {{ Form::open(['route'=>'salepayments.store']) }}
                                       <div class="form-group">
-                                        {{ Form::select('payment_type', ['Cash' => 'Cash', 'Check' => 'Check', 'DebitCard' => 'Debit Card', 'CreditCard' => 'Credit Card'], null, array('class' => 'form-control','placeholder'=>'Select a payment type','required')) }}
+                                        {{ Form::select('payment_type', ['Cash' => 'Cash', 'check' => 'check', 'DebitCard' => 'Debit Card', 'Transfer' => 'Transfer'], null, array('class' => 'form-control','placeholder'=>'Select a payment type','required')) }}
                                       </div>
                                       <div class="form-group">
                                         {{ Form::hidden('sale_id', $value->id, ['class'=>'form-control']) }}

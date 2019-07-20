@@ -570,15 +570,15 @@ $.Widget.prototype = {
 		return this;
 	},
 
-	_on: function( suppressDisabledCheck, element, handlers ) {
+	_on: function( suppressDisabledcheck, element, handlers ) {
 		var delegateElement;
 		var instance = this;
 
-		// No suppressDisabledCheck flag, shuffle arguments
-		if ( typeof suppressDisabledCheck !== "boolean" ) {
+		// No suppressDisabledcheck flag, shuffle arguments
+		if ( typeof suppressDisabledcheck !== "boolean" ) {
 			handlers = element;
-			element = suppressDisabledCheck;
-			suppressDisabledCheck = false;
+			element = suppressDisabledcheck;
+			suppressDisabledcheck = false;
 		}
 
 		// No element argument, shuffle and use this.element
@@ -597,7 +597,7 @@ $.Widget.prototype = {
 				// Allow widgets to customize the disabled handling
 				// - disabled as an array instead of boolean
 				// - disabled class as method for disabling individual parts
-				if ( !suppressDisabledCheck &&
+				if ( !suppressDisabledcheck &&
 						( instance.options.disabled === true ||
 						$( this ).hasClass( "ui-state-disabled" ) ) ) {
 					return;
@@ -4035,7 +4035,7 @@ var formResetMixin = $.ui.formResetMixin = {
 
 // Support: jQuery 1.7 only
 // Not a great way to check versions, but since we only support 1.7+ and only
-// need to detect <1.8, this is a simple check that should suffice. Checking
+// need to detect <1.8, this is a simple check that should suffice. checking
 // for "1.7." would be a bit safer, but the version string is 1.7, not 1.7.0
 // and we'll never reach 1.70.0 (if we do, we certainly won't be supporting
 // 1.7 anymore). See #11197 for why we're not using feature detection.
@@ -4161,7 +4161,7 @@ var escapeSelector = $.ui.escapeSelector = ( function() {
 var labels = $.fn.labels = function() {
 	var ancestor, selector, id, labels, ancestors;
 
-	// Check control.labels first
+	// check control.labels first
 	if ( this[ 0 ].labels && this[ 0 ].labels.length ) {
 		return this.pushStack( this[ 0 ].labels );
 	}
@@ -6525,7 +6525,7 @@ var widgetsControlgroup = $.widget( "ui.controlgroup", {
 } );
 
 /*!
- * jQuery UI Checkboxradio 1.12.1
+ * jQuery UI checkboxradio 1.12.1
  * http://jqueryui.com
  *
  * Copyright jQuery Foundation and other contributors
@@ -6533,7 +6533,7 @@ var widgetsControlgroup = $.widget( "ui.controlgroup", {
  * http://jquery.org/license
  */
 
-//>>label: Checkboxradio
+//>>label: checkboxradio
 //>>group: Widgets
 //>>description: Enhances a form with multiple themeable checkboxes or radio buttons.
 //>>docs: http://api.jqueryui.com/checkboxradio/
@@ -6791,7 +6791,7 @@ $.widget( "ui.checkboxradio", [ $.ui.formResetMixin, {
 
 } ] );
 
-var widgetsCheckboxradio = $.ui.checkboxradio;
+var widgetscheckboxradio = $.ui.checkboxradio;
 
 
 /*!
@@ -6864,7 +6864,7 @@ $.widget( "ui.button", {
 
 		this.hasTitle = !!this.element.attr( "title" );
 
-		// Check to see if the label needs to be set or if its already correct
+		// check to see if the label needs to be set or if its already correct
 		if ( this.options.label && this.options.label !== this.originalLabel ) {
 			if ( this.isInput ) {
 				this.element.val( this.options.label );
@@ -7126,7 +7126,7 @@ if ( $.uiBackCompat !== false ) {
 				return orig.apply( this, arguments );
 			}
 			if ( !$.ui.checkboxradio ) {
-				$.error( "Checkboxradio widget missing" );
+				$.error( "checkboxradio widget missing" );
 			}
 			if ( arguments.length === 0 ) {
 				return this.checkboxradio( {
@@ -8020,7 +8020,7 @@ $.extend( Datepicker.prototype, {
 		return inst.input && inst.input.is( ":visible" ) && !inst.input.is( ":disabled" ) && !inst.input.is( ":focus" );
 	},
 
-	/* Check positioning to remain on screen. */
+	/* check positioning to remain on screen. */
 	_checkOffset: function( inst, offset, isFixed ) {
 		var dpWidth = inst.dpDiv.outerWidth(),
 			dpHeight = inst.dpDiv.outerHeight(),
@@ -8307,7 +8307,7 @@ $.extend( Datepicker.prototype, {
 			literal = false,
 			date,
 
-			// Check whether a format character is doubled
+			// check whether a format character is doubled
 			lookAhead = function( match ) {
 				var matches = ( iFormat + 1 < format.length && format.charAt( iFormat + 1 ) === match );
 				if ( matches ) {
@@ -8505,7 +8505,7 @@ $.extend( Datepicker.prototype, {
 			monthNamesShort = ( settings ? settings.monthNamesShort : null ) || this._defaults.monthNamesShort,
 			monthNames = ( settings ? settings.monthNames : null ) || this._defaults.monthNames,
 
-			// Check whether a format character is doubled
+			// check whether a format character is doubled
 			lookAhead = function( match ) {
 				var matches = ( iFormat + 1 < format.length && format.charAt( iFormat + 1 ) === match );
 				if ( matches ) {
@@ -8590,7 +8590,7 @@ $.extend( Datepicker.prototype, {
 			chars = "",
 			literal = false,
 
-			// Check whether a format character is doubled
+			// check whether a format character is doubled
 			lookAhead = function( match ) {
 				var matches = ( iFormat + 1 < format.length && format.charAt( iFormat + 1 ) === match );
 				if ( matches ) {
@@ -10170,7 +10170,7 @@ $.widget( "ui.draggable", $.ui.mouse, {
 
 			if ( o.grid ) {
 
-				//Check for grid elements set to 0 to prevent divide by 0 error causing invalid
+				//check for grid elements set to 0 to prevent divide by 0 error causing invalid
 				// argument errors in IE (see ticket #6950)
 				top = o.grid[ 1 ] ? this.originalPageY + Math.round( ( pageY -
 					this.originalPageY ) / o.grid[ 1 ] ) * o.grid[ 1 ] : this.originalPageY;
@@ -16217,7 +16217,7 @@ var widgetsSortable = $.widget( "ui.sortable", $.ui.mouse, {
 				}
 			}
 
-			//Check if dropOnEmpty is enabled
+			//check if dropOnEmpty is enabled
 			if ( !itemWithLeastDistance && !this.options.dropOnEmpty ) {
 				return;
 			}
@@ -16633,7 +16633,7 @@ var widgetsSortable = $.widget( "ui.sortable", $.ui.mouse, {
 			} );
 		}
 
-		// Check if the items Container has Changed and trigger appropriate
+		// check if the items Container has Changed and trigger appropriate
 		// events.
 		if ( this !== this.currentContainer ) {
 			if ( !noPropagation ) {
@@ -17379,7 +17379,7 @@ $.widget( "ui.tabs", {
 			) ).sort();
 		}
 
-		// Check for length avoids error when initializing empty list
+		// check for length avoids error when initializing empty list
 		if ( this.options.active !== false && this.anchors.length ) {
 			this.active = this._findActive( options.active );
 		} else {
@@ -17410,7 +17410,7 @@ $.widget( "ui.tabs", {
 				} );
 			}
 
-			// Check for a tab marked active via a class
+			// check for a tab marked active via a class
 			if ( active === null ) {
 				active = this.tabs.index( this.tabs.filter( ".ui-tabs-active" ) );
 			}
