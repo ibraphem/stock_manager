@@ -41,7 +41,8 @@ class EmployeeController extends Controller
      * @return Response
      */
     public function create()
-    {
+    {       
+            
             return view('employee.edit');
     }
 
