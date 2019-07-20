@@ -47,10 +47,26 @@ class SaleController extends Controller
      * @return Response
      */
     public function store(Request $request)
-    {
-//        dd($request->all());
+    { 
+        /*
+        This method performs the operations below
+        1. saves sales record into sales table and determine if it is opened or closed with status,
+        2. Updates customes previous balance in customers table,
+        3. Updates sales payment table for payment made,
+        4. saves individual item with their sales record and ,
+        5. finally return the completed sales
+        
+        */
+        /*
+        echo '<pre>';
+        print_r($request->all());
+        echo '</pre>';*/
         $this->validator($request->all())->validate();
         $saleItems = SaleTemp::all();
+        //dd($saleItems);
+        /*echo '<pre>';
+        print_r($saleItems);
+        echo '</pre>';*/
         if (empty($saleItems->toArray())) {
             Session::flash('message', 'Please Add some Items to create sale!');
             Session::flash('alert-class', 'alert-danger');
@@ -72,11 +88,16 @@ class SaleController extends Controller
         //insert payment data in the payment table
         $payment = $sales->payment = Input::get('payment');
         $dues= $sales->dues = $total - $payment;
-        if ($dues > 0) {
+        if ($dues > 0) {//status 1 means close status 0 means open
             $sales->status = 0;
         } else {
             $sales->status = 1;
         }
+       /* echo $dues;
+        echo '<pre>';
+        print_r($sales);
+        echo '</pre>';*/
+        //dd("wait");
         $sales->save();
         $customer = Customer::findOrFail($sales->customer_id);
         $customer->prev_balance = $customer->prev_balance + $sales->dues;
@@ -148,7 +169,6 @@ class SaleController extends Controller
 
         ); 
         Mail::to('info@thepath.com.ng')->send(new SendMail($data));
-
         //delete all data on SaleTemp model
         SaleTemp::truncate();
         $itemssale = SaleItem::where('sale_id', $saleItemsData->sale_id)->get();
@@ -183,6 +203,12 @@ class SaleController extends Controller
     public function edit($id)
     {
         $sale = Sale::findOrFail($id);
+        if ($sale->dues > 0) {
+            Session::flash('message', 'Please Add Payment to balance your outstanding');
+            Session::flash('alert-class', 'alert-danger');
+            return back();
+        }
+        //dd($sale);
         $sale->status = 1;
         $sale->update();
         Session::flash('message', 'Sale Close Successfully');
@@ -198,5 +224,4 @@ class SaleController extends Controller
             'payment'=>'required'
         ]);
     }
-
 }
