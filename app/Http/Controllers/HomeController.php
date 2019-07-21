@@ -88,18 +88,19 @@ class HomeController extends Controller
         $expenses = Receiving::whereBetween('created_at', [ $daysOfWeek[0].' 00:00:00', $daysOfWeek[6].' 23:59:59'])->get();
         $chartArray = array();
         foreach ($daysOfWeek as $day) {
-            $weeklyincome = "0";
+            $weeklyincome  = "0";
             $weeklyexpense = "0";
-            $weeklyincome = Sale::whereBetween('created_at', [ $day.' 00:00:00', $day.' 23:59:59'])->count();
-            $weeklyexpense = Receiving::whereBetween('created_at', [ $day.' 00:00:00', $day.' 23:59:59'])->count();
+            $weeklyincome  = Sale::whereBetween('created_at', [ $day.' 00:00:00', $day.' 23:59:59'])->sum('payment');
+            $weeklydues    = Sale::whereBetween('created_at', [ $day.' 00:00:00', $day.' 23:59:59'])->sum('dues');
             $chart = [
                 'y' => $day,
                 'a' => $weeklyexpense,
-                'b'=>$weeklyincome,
+                'b' => $weeklyincome,
             ];
             $chartArray[] =  $chart;
            
         }
+        //dd("Saless");
         return $chartArray;
     }
 
