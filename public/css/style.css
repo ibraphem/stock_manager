@@ -90,8 +90,8 @@ p.form-control-static.subtotal {
 .login-background {
     background: url('../../images/flexiblepos-login-screen.jpg');
     -webkit-background-size: cover;
-    filter: blur(4px);
-    -webkit-filter: blur(4px);
+    /*filter: blur(4px);
+    -webkit-filter: blur(4px);*/
     background-size: cover;
     height: 100%;
     position: absolute;

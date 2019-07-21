@@ -32,7 +32,7 @@ Route::group(['middleware' => 'languange'], function () {
     Route::get('reports/getdailyreport', 'DailyReportController@getDailyReport')->name('reports.getdaily');
     Route::get('reports/createdailyreport', 'DailyReportController@createDailyReport')->name('reports.createdaily');
     Route::get('reports/createpastdailyreport', 'DailyReportController@createPastDailyReport')->name('reports.createpast');
-
+    
     Route::resource('employees', 'EmployeeController');
     Route::post('/employees/assignroles', 'EmployeeController@assignRoles')->name('assign.roles');
     Route::post('/employeerole/create', 'EmployeeController@roleCreate')->name('employeerole.create');

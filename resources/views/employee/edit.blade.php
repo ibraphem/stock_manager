@@ -27,6 +27,7 @@
             <div class="box-body">
 				<div class="box-header"></div>
 				<div class="col-md-6">
+				{{---dd($employee)---}}
 					@if(isset($employee))
 						{{ Form::model($employee, array('route' => array('employees.update', $employee->id), 'method' => 'PUT')) }}
 					@else
@@ -49,8 +50,8 @@
 					<div class="form-group row">
 						{{ Form::label('password', trans('employee.password'), ['class'=>'col-sm-3 text-right']) }}
 						<div class="col-sm-9"> 
-							<!--<input id="password-field" type="password" class="form-control" name="password" value="{{$employee->password}}">-->
-							<input type="password" id="password-field" class="form-control" value="{{$employee->password}}" name="password" placeholder="Password">
+					
+							<input type="password" id="password-field" class="form-control" value="@if(isset($employee)){{$employee->password}}@endif" name="password" placeholder="Password">
 							<!--div class="input-group-append">-->
 								<span toggle="#password-field" class="fa fa-lg fa-eye field-icon toggle-password"></span>
 							<!--</div>-->
@@ -61,7 +62,7 @@
 					<div class="form-group row">
 						{{ Form::label('password_confirmation', trans('employee.confirm_password'), ['class'=>'col-sm-3 text-right']) }}
 						<div class="col-sm-9"> 
-							<input type="password" id="password_confirm" class="form-control" value="{{$employee->password}}" name="password_confirmation" placeholder="Confirm Password">
+							<input type="password" id="password_confirm" class="form-control" value="@if(isset($employee)){{$employee->password}}@endif" name="password_confirmation" placeholder="Confirm Password">
 							<span toggle="#password_confirm" class="fa fa-lg fa-eye field-icon toggle-password-new"></span>
 						</div>
 					</div>
