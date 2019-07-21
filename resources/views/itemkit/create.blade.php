@@ -73,7 +73,7 @@
                                             <div class="input-group">
 
                                                 <input type="text" class="form-control" name="cost_price_ori" id="cost_price_ori" ng-model="sumCost(itemkittemp)" readonly/>
-                                                <div class="input-group-addon">$</div>
+                                                <div class="input-group-addon"> &#x20A6;</div>
                                                 <input type="text" class="form-control" name="cost_price" id="cost_price" ng-model="cp"/>
                                             </div>
                                         </div>
@@ -85,7 +85,7 @@
                                             <div class="input-group">
 
                                         <input type="text" class="form-control" name="selling_price_ori" id="selling_price_ori" ng-model="sumSell(itemkittemp)" readonly/>
-                                        <div class="input-group-addon">$</div>
+                                        <div class="input-group-addon"> &#x20A6;</div>
                                         <input type="text" class="form-control" name="selling_price" id="selling_price" ng-model="sp"/>
                                             </div>
                                         </div>
