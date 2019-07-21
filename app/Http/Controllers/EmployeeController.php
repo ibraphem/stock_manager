@@ -121,7 +121,7 @@ class EmployeeController extends Controller
     public function update(Request $request, $id)
     {
         if ($id == 1) {
-            Session::flash('message', 'You cannot edit admin on FlexiblePos v2.0');
+            Session::flash('message', 'You cannot edit admin on YAREECEE STOCK/SALES INVENTORY MANAGER');
             Session::flash('alert-class', 'alert-danger');
                 return Redirect::to('employees');
         } else {

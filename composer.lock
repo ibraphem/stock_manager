@@ -464,7 +464,7 @@
                 "satooshi/php-coveralls": "^1.0.1"
             },
             "suggest": {
-                "ext-intl": "PHP Internationalization Libraries are required to use the SpoofChecking validation"
+                "ext-intl": "PHP Internationalization Libraries are required to use the Spoofchecking validation"
             },
             "type": "library",
             "extra": {

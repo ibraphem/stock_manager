@@ -5,7 +5,7 @@
 /******/ 	// The require function
 /******/ 	function __webpack_require__(moduleId) {
 /******/
-/******/ 		// Check if module is in cache
+/******/ 		// check if module is in cache
 /******/ 		if(installedModules[moduleId]) {
 /******/ 			return installedModules[moduleId].exports;
 /******/ 		}
@@ -2072,7 +2072,7 @@ if (token) {
   }
 
   /**
-   * Checks if a `cache` value for `key` exists.
+   * checks if a `cache` value for `key` exists.
    *
    * @private
    * @param {Object} cache The cache to query.
@@ -2179,7 +2179,7 @@ if (token) {
   }
 
   /**
-   * Checks if `string` contains Unicode symbols.
+   * checks if `string` contains Unicode symbols.
    *
    * @private
    * @param {string} string The string to inspect.
@@ -2190,7 +2190,7 @@ if (token) {
   }
 
   /**
-   * Checks if `string` contains a word composed of Unicode symbols.
+   * checks if `string` contains a word composed of Unicode symbols.
    *
    * @private
    * @param {string} string The string to inspect.
@@ -3022,7 +3022,7 @@ if (token) {
     }
 
     /**
-     * Checks if a hash value for `key` exists.
+     * checks if a hash value for `key` exists.
      *
      * @private
      * @name has
@@ -3134,7 +3134,7 @@ if (token) {
     }
 
     /**
-     * Checks if a list cache value for `key` exists.
+     * checks if a list cache value for `key` exists.
      *
      * @private
      * @name has
@@ -3241,7 +3241,7 @@ if (token) {
     }
 
     /**
-     * Checks if a map value for `key` exists.
+     * checks if a map value for `key` exists.
      *
      * @private
      * @name has
@@ -3315,7 +3315,7 @@ if (token) {
     }
 
     /**
-     * Checks if `value` is in the array cache.
+     * checks if `value` is in the array cache.
      *
      * @private
      * @name has
@@ -3388,7 +3388,7 @@ if (token) {
     }
 
     /**
-     * Checks if a stack value for `key` exists.
+     * checks if a stack value for `key` exists.
      *
      * @private
      * @name has
@@ -3722,7 +3722,7 @@ if (token) {
           result = initCloneByTag(value, tag, isDeep);
         }
       }
-      // Check for circular references and return its corresponding clone.
+      // check for circular references and return its corresponding clone.
       stack || (stack = new Stack);
       var stacked = stack.get(value);
       if (stacked) {
@@ -7177,7 +7177,7 @@ if (token) {
     }
 
     /**
-     * Checks if `path` exists on `object`.
+     * checks if `path` exists on `object`.
      *
      * @private
      * @param {Object} object The object to query.
@@ -7307,7 +7307,7 @@ if (token) {
     }
 
     /**
-     * Checks if `value` is a flattenable `arguments` object or array.
+     * checks if `value` is a flattenable `arguments` object or array.
      *
      * @private
      * @param {*} value The value to check.
@@ -7319,7 +7319,7 @@ if (token) {
     }
 
     /**
-     * Checks if `value` is a valid array-like index.
+     * checks if `value` is a valid array-like index.
      *
      * @private
      * @param {*} value The value to check.
@@ -7337,7 +7337,7 @@ if (token) {
     }
 
     /**
-     * Checks if the given arguments are from an iteratee call.
+     * checks if the given arguments are from an iteratee call.
      *
      * @private
      * @param {*} value The potential iteratee value argument.
@@ -7361,7 +7361,7 @@ if (token) {
     }
 
     /**
-     * Checks if `value` is a property name and not a property path.
+     * checks if `value` is a property name and not a property path.
      *
      * @private
      * @param {*} value The value to check.
@@ -7382,7 +7382,7 @@ if (token) {
     }
 
     /**
-     * Checks if `value` is suitable for use as unique object key.
+     * checks if `value` is suitable for use as unique object key.
      *
      * @private
      * @param {*} value The value to check.
@@ -7396,7 +7396,7 @@ if (token) {
     }
 
     /**
-     * Checks if `func` has a lazy counterpart.
+     * checks if `func` has a lazy counterpart.
      *
      * @private
      * @param {Function} func The function to check.
@@ -7418,7 +7418,7 @@ if (token) {
     }
 
     /**
-     * Checks if `func` has its source masked.
+     * checks if `func` has its source masked.
      *
      * @private
      * @param {Function} func The function to check.
@@ -7429,7 +7429,7 @@ if (token) {
     }
 
     /**
-     * Checks if `func` is capable of being masked.
+     * checks if `func` is capable of being masked.
      *
      * @private
      * @param {*} value The value to check.
@@ -7438,7 +7438,7 @@ if (token) {
     var isMaskable = coreJsData ? isFunction : stubFalse;
 
     /**
-     * Checks if `value` is likely a prototype object.
+     * checks if `value` is likely a prototype object.
      *
      * @private
      * @param {*} value The value to check.
@@ -7452,7 +7452,7 @@ if (token) {
     }
 
     /**
-     * Checks if `value` is suitable for strict equality comparisons, i.e. `===`.
+     * checks if `value` is suitable for strict equality comparisons, i.e. `===`.
      *
      * @private
      * @param {*} value The value to check.
@@ -10132,7 +10132,7 @@ if (token) {
     });
 
     /**
-     * Checks if `predicate` returns truthy for **all** elements of `collection`.
+     * checks if `predicate` returns truthy for **all** elements of `collection`.
      * Iteration is stopped once `predicate` returns falsey. The predicate is
      * invoked with three arguments: (value, index|key, collection).
      *
@@ -10448,7 +10448,7 @@ if (token) {
     });
 
     /**
-     * Checks if `value` is in `collection`. If `collection` is a string, it's
+     * checks if `value` is in `collection`. If `collection` is a string, it's
      * checked for a substring of `value`, otherwise
      * [`SameValueZero`](http://ecma-international.org/ecma-262/7.0/#sec-samevaluezero)
      * is used for equality comparisons. If `fromIndex` is negative, it's used as
@@ -10903,7 +10903,7 @@ if (token) {
     }
 
     /**
-     * Checks if `predicate` returns truthy for **any** element of `collection`.
+     * checks if `predicate` returns truthy for **any** element of `collection`.
      * Iteration is stopped once `predicate` returns truthy. The predicate is
      * invoked with three arguments: (value, index|key, collection).
      *
@@ -12170,7 +12170,7 @@ if (token) {
     }
 
     /**
-     * Checks if `object` conforms to `source` by invoking the predicate
+     * checks if `object` conforms to `source` by invoking the predicate
      * properties of `source` with the corresponding property values of `object`.
      *
      * **Note:** This method is equivalent to `_.conforms` when `source` is
@@ -12234,7 +12234,7 @@ if (token) {
     }
 
     /**
-     * Checks if `value` is greater than `other`.
+     * checks if `value` is greater than `other`.
      *
      * @static
      * @memberOf _
@@ -12259,7 +12259,7 @@ if (token) {
     var gt = createRelationalOperation(baseGt);
 
     /**
-     * Checks if `value` is greater than or equal to `other`.
+     * checks if `value` is greater than or equal to `other`.
      *
      * @static
      * @memberOf _
@@ -12286,7 +12286,7 @@ if (token) {
     });
 
     /**
-     * Checks if `value` is likely an `arguments` object.
+     * checks if `value` is likely an `arguments` object.
      *
      * @static
      * @memberOf _
@@ -12309,7 +12309,7 @@ if (token) {
     };
 
     /**
-     * Checks if `value` is classified as an `Array` object.
+     * checks if `value` is classified as an `Array` object.
      *
      * @static
      * @memberOf _
@@ -12334,7 +12334,7 @@ if (token) {
     var isArray = Array.isArray;
 
     /**
-     * Checks if `value` is classified as an `ArrayBuffer` object.
+     * checks if `value` is classified as an `ArrayBuffer` object.
      *
      * @static
      * @memberOf _
@@ -12353,7 +12353,7 @@ if (token) {
     var isArrayBuffer = nodeIsArrayBuffer ? baseUnary(nodeIsArrayBuffer) : baseIsArrayBuffer;
 
     /**
-     * Checks if `value` is array-like. A value is considered array-like if it's
+     * checks if `value` is array-like. A value is considered array-like if it's
      * not a function and has a `value.length` that's an integer greater than or
      * equal to `0` and less than or equal to `Number.MAX_SAFE_INTEGER`.
      *
@@ -12411,7 +12411,7 @@ if (token) {
     }
 
     /**
-     * Checks if `value` is classified as a boolean primitive or object.
+     * checks if `value` is classified as a boolean primitive or object.
      *
      * @static
      * @memberOf _
@@ -12433,7 +12433,7 @@ if (token) {
     }
 
     /**
-     * Checks if `value` is a buffer.
+     * checks if `value` is a buffer.
      *
      * @static
      * @memberOf _
@@ -12452,7 +12452,7 @@ if (token) {
     var isBuffer = nativeIsBuffer || stubFalse;
 
     /**
-     * Checks if `value` is classified as a `Date` object.
+     * checks if `value` is classified as a `Date` object.
      *
      * @static
      * @memberOf _
@@ -12471,7 +12471,7 @@ if (token) {
     var isDate = nodeIsDate ? baseUnary(nodeIsDate) : baseIsDate;
 
     /**
-     * Checks if `value` is likely a DOM element.
+     * checks if `value` is likely a DOM element.
      *
      * @static
      * @memberOf _
@@ -12492,7 +12492,7 @@ if (token) {
     }
 
     /**
-     * Checks if `value` is an empty object, collection, map, or set.
+     * checks if `value` is an empty object, collection, map, or set.
      *
      * Objects are considered empty if they have no own enumerable string keyed
      * properties.
@@ -12619,7 +12619,7 @@ if (token) {
     }
 
     /**
-     * Checks if `value` is an `Error`, `EvalError`, `RangeError`, `ReferenceError`,
+     * checks if `value` is an `Error`, `EvalError`, `RangeError`, `ReferenceError`,
      * `SyntaxError`, `TypeError`, or `URIError` object.
      *
      * @static
@@ -12646,7 +12646,7 @@ if (token) {
     }
 
     /**
-     * Checks if `value` is a finite primitive number.
+     * checks if `value` is a finite primitive number.
      *
      * **Note:** This method is based on
      * [`Number.isFinite`](https://mdn.io/Number/isFinite).
@@ -12676,7 +12676,7 @@ if (token) {
     }
 
     /**
-     * Checks if `value` is classified as a `Function` object.
+     * checks if `value` is classified as a `Function` object.
      *
      * @static
      * @memberOf _
@@ -12703,7 +12703,7 @@ if (token) {
     }
 
     /**
-     * Checks if `value` is an integer.
+     * checks if `value` is an integer.
      *
      * **Note:** This method is based on
      * [`Number.isInteger`](https://mdn.io/Number/isInteger).
@@ -12733,7 +12733,7 @@ if (token) {
     }
 
     /**
-     * Checks if `value` is a valid array-like length.
+     * checks if `value` is a valid array-like length.
      *
      * **Note:** This method is loosely based on
      * [`ToLength`](http://ecma-international.org/ecma-262/7.0/#sec-tolength).
@@ -12764,7 +12764,7 @@ if (token) {
     }
 
     /**
-     * Checks if `value` is the
+     * checks if `value` is the
      * [language type](http://www.ecma-international.org/ecma-262/7.0/#sec-ecmascript-language-types)
      * of `Object`. (e.g. arrays, functions, objects, regexes, `new Number(0)`, and `new String('')`)
      *
@@ -12794,7 +12794,7 @@ if (token) {
     }
 
     /**
-     * Checks if `value` is object-like. A value is object-like if it's not `null`
+     * checks if `value` is object-like. A value is object-like if it's not `null`
      * and has a `typeof` result of "object".
      *
      * @static
@@ -12822,7 +12822,7 @@ if (token) {
     }
 
     /**
-     * Checks if `value` is classified as a `Map` object.
+     * checks if `value` is classified as a `Map` object.
      *
      * @static
      * @memberOf _
@@ -12910,7 +12910,7 @@ if (token) {
     }
 
     /**
-     * Checks if `value` is `NaN`.
+     * checks if `value` is `NaN`.
      *
      * **Note:** This method is based on
      * [`Number.isNaN`](https://mdn.io/Number/isNaN) and is not the same as
@@ -12945,7 +12945,7 @@ if (token) {
     }
 
     /**
-     * Checks if `value` is a pristine native function.
+     * checks if `value` is a pristine native function.
      *
      * **Note:** This method can't reliably detect native functions in the presence
      * of the core-js package because core-js circumvents this kind of detection.
@@ -12978,7 +12978,7 @@ if (token) {
     }
 
     /**
-     * Checks if `value` is `null`.
+     * checks if `value` is `null`.
      *
      * @static
      * @memberOf _
@@ -12999,7 +12999,7 @@ if (token) {
     }
 
     /**
-     * Checks if `value` is `null` or `undefined`.
+     * checks if `value` is `null` or `undefined`.
      *
      * @static
      * @memberOf _
@@ -13023,7 +13023,7 @@ if (token) {
     }
 
     /**
-     * Checks if `value` is classified as a `Number` primitive or object.
+     * checks if `value` is classified as a `Number` primitive or object.
      *
      * **Note:** To exclude `Infinity`, `-Infinity`, and `NaN`, which are
      * classified as numbers, use the `_.isFinite` method.
@@ -13054,7 +13054,7 @@ if (token) {
     }
 
     /**
-     * Checks if `value` is a plain object, that is, an object created by the
+     * checks if `value` is a plain object, that is, an object created by the
      * `Object` constructor or one with a `[[Prototype]]` of `null`.
      *
      * @static
@@ -13095,7 +13095,7 @@ if (token) {
     }
 
     /**
-     * Checks if `value` is classified as a `RegExp` object.
+     * checks if `value` is classified as a `RegExp` object.
      *
      * @static
      * @memberOf _
@@ -13114,7 +13114,7 @@ if (token) {
     var isRegExp = nodeIsRegExp ? baseUnary(nodeIsRegExp) : baseIsRegExp;
 
     /**
-     * Checks if `value` is a safe integer. An integer is safe if it's an IEEE-754
+     * checks if `value` is a safe integer. An integer is safe if it's an IEEE-754
      * double precision number which isn't the result of a rounded unsafe integer.
      *
      * **Note:** This method is based on
@@ -13145,7 +13145,7 @@ if (token) {
     }
 
     /**
-     * Checks if `value` is classified as a `Set` object.
+     * checks if `value` is classified as a `Set` object.
      *
      * @static
      * @memberOf _
@@ -13164,7 +13164,7 @@ if (token) {
     var isSet = nodeIsSet ? baseUnary(nodeIsSet) : baseIsSet;
 
     /**
-     * Checks if `value` is classified as a `String` primitive or object.
+     * checks if `value` is classified as a `String` primitive or object.
      *
      * @static
      * @since 0.1.0
@@ -13186,7 +13186,7 @@ if (token) {
     }
 
     /**
-     * Checks if `value` is classified as a `Symbol` primitive or object.
+     * checks if `value` is classified as a `Symbol` primitive or object.
      *
      * @static
      * @memberOf _
@@ -13208,7 +13208,7 @@ if (token) {
     }
 
     /**
-     * Checks if `value` is classified as a typed array.
+     * checks if `value` is classified as a typed array.
      *
      * @static
      * @memberOf _
@@ -13227,7 +13227,7 @@ if (token) {
     var isTypedArray = nodeIsTypedArray ? baseUnary(nodeIsTypedArray) : baseIsTypedArray;
 
     /**
-     * Checks if `value` is `undefined`.
+     * checks if `value` is `undefined`.
      *
      * @static
      * @since 0.1.0
@@ -13248,7 +13248,7 @@ if (token) {
     }
 
     /**
-     * Checks if `value` is classified as a `WeakMap` object.
+     * checks if `value` is classified as a `WeakMap` object.
      *
      * @static
      * @memberOf _
@@ -13269,7 +13269,7 @@ if (token) {
     }
 
     /**
-     * Checks if `value` is classified as a `WeakSet` object.
+     * checks if `value` is classified as a `WeakSet` object.
      *
      * @static
      * @memberOf _
@@ -13290,7 +13290,7 @@ if (token) {
     }
 
     /**
-     * Checks if `value` is less than `other`.
+     * checks if `value` is less than `other`.
      *
      * @static
      * @memberOf _
@@ -13315,7 +13315,7 @@ if (token) {
     var lt = createRelationalOperation(baseLt);
 
     /**
-     * Checks if `value` is less than or equal to `other`.
+     * checks if `value` is less than or equal to `other`.
      *
      * @static
      * @memberOf _
@@ -14177,7 +14177,7 @@ if (token) {
     }
 
     /**
-     * Checks if `path` is a direct property of `object`.
+     * checks if `path` is a direct property of `object`.
      *
      * @static
      * @since 0.1.0
@@ -14208,7 +14208,7 @@ if (token) {
     }
 
     /**
-     * Checks if `path` is a direct or inherited property of `object`.
+     * checks if `path` is a direct or inherited property of `object`.
      *
      * @static
      * @memberOf _
@@ -15043,7 +15043,7 @@ if (token) {
     }
 
     /**
-     * Checks if `n` is between `start` and up to, but not including, `end`. If
+     * checks if `n` is between `start` and up to, but not including, `end`. If
      * `end` is not specified, it's set to `start` with `start` then set to `0`.
      * If `start` is greater than `end` the params are swapped to support
      * negative ranges.
@@ -15232,7 +15232,7 @@ if (token) {
     }
 
     /**
-     * Checks if `string` ends with the given target string.
+     * checks if `string` ends with the given target string.
      *
      * @static
      * @memberOf _
@@ -15679,7 +15679,7 @@ if (token) {
     });
 
     /**
-     * Checks if `string` starts with the given target string.
+     * checks if `string` starts with the given target string.
      *
      * @static
      * @memberOf _
@@ -16439,7 +16439,7 @@ if (token) {
     }
 
     /**
-     * Checks `value` to determine whether a default value should be returned in
+     * checks `value` to determine whether a default value should be returned in
      * its place. The `defaultValue` is returned if `value` is `NaN`, `null`,
      * or `undefined`.
      *
@@ -18141,7 +18141,7 @@ if (token) {
     }).call(exports, __webpack_require__, exports, module),
 				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
   }
-  // Check for `exports` after `define` in case a build optimizer adds it.
+  // check for `exports` after `define` in case a build optimizer adds it.
   else if (freeModule) {
     // Export for Node.js.
     (freeModule.exports = _)._ = _;
@@ -19100,12 +19100,12 @@ function addHandle( attrs, handler ) {
 }
 
 /**
- * Checks document order of two siblings
+ * checks document order of two siblings
  * @param {Element} a
  * @param {Element} b
  * @returns {Number} Returns less than 0 if a precedes b, greater than 0 if a follows b
  */
-function siblingCheck( a, b ) {
+function siblingcheck( a, b ) {
 	var cur = b && a,
 		diff = cur && a.nodeType === 1 && b.nodeType === 1 &&
 			a.sourceIndex - b.sourceIndex;
@@ -19115,7 +19115,7 @@ function siblingCheck( a, b ) {
 		return diff;
 	}
 
-	// Check if b follows a
+	// check if b follows a
 	if ( cur ) {
 		while ( (cur = cur.nextSibling) ) {
 			if ( cur === b ) {
@@ -19163,7 +19163,7 @@ function createDisabledPseudo( disabled ) {
 		// https://html.spec.whatwg.org/multipage/scripting.html#selector-disabled
 		if ( "form" in elem ) {
 
-			// Check for inherited disabledness on relevant non-disabled elements:
+			// check for inherited disabledness on relevant non-disabled elements:
 			// * listed form-associated elements in a disabled fieldset
 			//   https://html.spec.whatwg.org/multipage/forms.html#category-listed
 			//   https://html.spec.whatwg.org/multipage/forms.html#concept-fe-disabled
@@ -19228,7 +19228,7 @@ function createPositionalPseudo( fn ) {
 }
 
 /**
- * Checks a node for validity as a Sizzle context
+ * checks a node for validity as a Sizzle context
  * @param {Element|Object=} context
  * @returns {Element|Object|Boolean} The input node if acceptable, otherwise a falsy value
  */
@@ -19299,7 +19299,7 @@ setDocument = Sizzle.setDocument = function( node ) {
 	/* getElement(s)By*
 	---------------------------------------------------------------------- */
 
-	// Check if getElementsByTagName("*") returns only elements
+	// check if getElementsByTagName("*") returns only elements
 	support.getElementsByTagName = assert(function( el ) {
 		el.appendChild( document.createComment("") );
 		return !el.getElementsByTagName("*").length;
@@ -19309,7 +19309,7 @@ setDocument = Sizzle.setDocument = function( node ) {
 	support.getElementsByClassName = rnative.test( document.getElementsByClassName );
 
 	// Support: IE<10
-	// Check if getElementById returns elements by name
+	// check if getElementById returns elements by name
 	// The broken getElementById methods don't pick up programmatically-set names,
 	// so use a roundabout getElementsByName test
 	support.getById = assert(function( el ) {
@@ -19515,7 +19515,7 @@ setDocument = Sizzle.setDocument = function( node ) {
 		docElem.msMatchesSelector) )) ) {
 
 		assert(function( el ) {
-			// Check to see if it's possible to do matchesSelector
+			// check to see if it's possible to do matchesSelector
 			// on a disconnected node (IE 9)
 			support.disconnectedMatch = matches.call( el, "*" );
 
@@ -19629,7 +19629,7 @@ setDocument = Sizzle.setDocument = function( node ) {
 
 		// If the nodes are siblings, we can do a quick check
 		} else if ( aup === bup ) {
-			return siblingCheck( a, b );
+			return siblingcheck( a, b );
 		}
 
 		// Otherwise we need full lists of their ancestors for comparison
@@ -19649,7 +19649,7 @@ setDocument = Sizzle.setDocument = function( node ) {
 
 		return i ?
 			// Do a sibling check if the nodes have a common ancestor
-			siblingCheck( ap[i], bp[i] ) :
+			siblingcheck( ap[i], bp[i] ) :
 
 			// Otherwise nodes in our document sort first
 			ap[i] === preferredDoc ? -1 :
@@ -20403,7 +20403,7 @@ function addCombinator( matcher, combinator, base ) {
 		doneName = done++;
 
 	return combinator.first ?
-		// Check against closest ancestor/preceding element
+		// check against closest ancestor/preceding element
 		function( elem, context, xml ) {
 			while ( (elem = elem[ dir ]) ) {
 				if ( elem.nodeType === 1 || checkNonElements ) {
@@ -20413,7 +20413,7 @@ function addCombinator( matcher, combinator, base ) {
 			return false;
 		} :
 
-		// Check against all ancestor/preceding elements
+		// check against all ancestor/preceding elements
 		function( elem, context, xml ) {
 			var oldCache, uniqueCache, outerCache,
 				newCache = [ dirruns, doneName ];
@@ -21536,7 +21536,7 @@ jQuery.Callbacks = function( options ) {
 				return this;
 			},
 
-			// Check if a given callback is in the list.
+			// check if a given callback is in the list.
 			// If no argument is given, return whether or not list has callbacks attached.
 			has: function( fn ) {
 				return fn ?
@@ -21619,7 +21619,7 @@ function adoptValue( value, resolve, reject, noValue ) {
 
 	try {
 
-		// Check for promise aspect first to privilege synchronous behavior
+		// check for promise aspect first to privilege synchronous behavior
 		if ( value && isFunction( ( method = value.promise ) ) ) {
 			method.call( value ).done( resolve ).fail( reject );
 
@@ -22201,7 +22201,7 @@ Data.prototype = {
 
 	cache: function( owner ) {
 
-		// Check if the owner object already has a cache
+		// check if the owner object already has a cache
 		var value = owner[ this.expando ];
 
 		// If not, create one
@@ -23026,7 +23026,7 @@ function buildFragment( elems, context, scripts, selection, ignored ) {
 		input = document.createElement( "input" );
 
 	// Support: Android 4.0 - 4.3 only
-	// Check state lost if the name is set (#11217)
+	// check state lost if the name is set (#11217)
 	// Support: Windows Web Apps (WWA)
 	// `name` and `type` must use .setAttribute for WWA (#14901)
 	input.setAttribute( "type", "radio" );
@@ -23042,7 +23042,7 @@ function buildFragment( elems, context, scripts, selection, ignored ) {
 	// Support: IE <=11 only
 	// Make sure textarea (and checkbox) defaultValue is properly cloned
 	div.innerHTML = "<textarea>x</textarea>";
-	support.noCloneChecked = !!div.cloneNode( true ).lastChild.defaultValue;
+	support.noClonechecked = !!div.cloneNode( true ).lastChild.defaultValue;
 } )();
 var documentElement = document.documentElement;
 
@@ -23992,7 +23992,7 @@ jQuery.extend( {
 			inPage = jQuery.contains( elem.ownerDocument, elem );
 
 		// Fix IE cloning issues
-		if ( !support.noCloneChecked && ( elem.nodeType === 1 || elem.nodeType === 11 ) &&
+		if ( !support.noClonechecked && ( elem.nodeType === 1 || elem.nodeType === 11 ) &&
 				!jQuery.isXMLDoc( elem ) ) {
 
 			// We eschew Sizzle here for performance reasons: https://jsperf.com/getall-vs-sizzle/2
@@ -24437,7 +24437,7 @@ function vendorPropName( name ) {
 		return name;
 	}
 
-	// Check for vendor prefixed names
+	// check for vendor prefixed names
 	var capName = name[ 0 ].toUpperCase() + name.slice( 1 ),
 		i = cssPrefixes.length;
 
@@ -24553,7 +24553,7 @@ function getWidthOrHeight( elem, dimension, extra ) {
 		val = "auto";
 	}
 
-	// Check for style in case a browser which returns unreliable values
+	// check for style in case a browser which returns unreliable values
 	// for getComputedStyle silently falls back to the reliable elem.style
 	valueIsBorderBox = valueIsBorderBox &&
 		( support.boxSizingReliable() || val === elem.style[ dimension ] );
@@ -24651,7 +24651,7 @@ jQuery.extend( {
 		// Gets hook for the prefixed version, then unprefixed version
 		hooks = jQuery.cssHooks[ name ] || jQuery.cssHooks[ origName ];
 
-		// Check if we're setting a value
+		// check if we're setting a value
 		if ( value !== undefined ) {
 			type = typeof value;
 
@@ -26103,7 +26103,7 @@ jQuery.fn.extend( {
 
 				while ( ( className = classNames[ i++ ] ) ) {
 
-					// Check each className given, space separated list
+					// check each className given, space separated list
 					if ( self.hasClass( className ) ) {
 						self.removeClass( className );
 					} else {
@@ -26850,7 +26850,7 @@ function ajaxHandleResponses( s, jqXHR, responses ) {
 		}
 	}
 
-	// Check if we're dealing with a known content-type
+	// check if we're dealing with a known content-type
 	if ( ct ) {
 		for ( type in contents ) {
 			if ( contents[ type ] && contents[ type ].test( ct ) ) {
@@ -26860,7 +26860,7 @@ function ajaxHandleResponses( s, jqXHR, responses ) {
 		}
 	}
 
-	// Check to see if we have a response for the expected dataType
+	// check to see if we have a response for the expected dataType
 	if ( dataTypes[ 0 ] in responses ) {
 		finalDataType = dataTypes[ 0 ];
 	} else {
@@ -27344,7 +27344,7 @@ jQuery.extend( {
 				s.accepts[ "*" ]
 		);
 
-		// Check for headers option
+		// check for headers option
 		for ( i in s.headers ) {
 			jqXHR.setRequestHeader( i, s.headers[ i ] );
 		}
@@ -27765,7 +27765,7 @@ jQuery.ajaxTransport( function( options ) {
 				} else {
 					xhr.onreadystatechange = function() {
 
-						// Check readyState before timeout as it changes
+						// check readyState before timeout as it changes
 						if ( xhr.readyState === 4 ) {
 
 							// Allow onerror to be called first,
@@ -30134,7 +30134,7 @@ if (typeof jQuery === 'undefined') {
 
     function complete() {
       if (that.hoverState != 'in') $tip.detach()
-      if (that.$element) { // TODO: Check whether guarding this code with this `if` is really necessary.
+      if (that.$element) { // TODO: check whether guarding this code with this `if` is really necessary.
         that.$element
           .removeAttr('aria-describedby')
           .trigger('hidden.bs.' + that.type)
@@ -31847,7 +31847,7 @@ function isFalse (v) {
 }
 
 /**
- * Check if value is primitive
+ * check if value is primitive
  */
 function isPrimitive (value) {
   return (
@@ -31890,7 +31890,7 @@ function isRegExp (v) {
 }
 
 /**
- * Check if val is a valid array index.
+ * check if val is a valid array index.
  */
 function isValidArrayIndex (val) {
   var n = parseFloat(String(val));
@@ -31936,12 +31936,12 @@ function makeMap (
 }
 
 /**
- * Check if a tag is a built-in tag.
+ * check if a tag is a built-in tag.
  */
 var isBuiltInTag = makeMap('slot,component', true);
 
 /**
- * Check if a attribute is a reserved attribute.
+ * check if a attribute is a reserved attribute.
  */
 var isReservedAttribute = makeMap('key,ref,slot,slot-scope,is');
 
@@ -31958,7 +31958,7 @@ function remove (arr, item) {
 }
 
 /**
- * Check whether the object has the property.
+ * check whether the object has the property.
  */
 var hasOwnProperty = Object.prototype.hasOwnProperty;
 function hasOwn (obj, key) {
@@ -32079,7 +32079,7 @@ function genStaticKeys (modules) {
 }
 
 /**
- * Check if two values are loosely equal - that is,
+ * check if two values are loosely equal - that is,
  * if they are plain objects, do they have the same shape?
  */
 function looseEqual (a, b) {
@@ -32208,19 +32208,19 @@ var config = ({
   keyCodes: Object.create(null),
 
   /**
-   * Check if a tag is reserved so that it cannot be registered as a
+   * check if a tag is reserved so that it cannot be registered as a
    * component. This is platform-dependent and may be overwritten.
    */
   isReservedTag: no,
 
   /**
-   * Check if an attribute is reserved so that it cannot be used as a component
+   * check if an attribute is reserved so that it cannot be used as a component
    * prop. This is platform-dependent and may be overwritten.
    */
   isReservedAttr: no,
 
   /**
-   * Check if a tag is an unknown element.
+   * check if a tag is an unknown element.
    * Platform-dependent.
    */
   isUnknownElement: no,
@@ -32236,7 +32236,7 @@ var config = ({
   parsePlatformTagName: identity,
 
   /**
-   * Check if an attribute must be bound using property, e.g. value
+   * check if an attribute must be bound using property, e.g. value
    * Platform-dependent.
    */
   mustUseProp: no,
@@ -32250,7 +32250,7 @@ var config = ({
 /*  */
 
 /**
- * Check if a string starts with $ or _
+ * check if a string starts with $ or _
  */
 function isReserved (str) {
   var c = (str + '').charCodeAt(0);
@@ -33446,12 +33446,12 @@ function assertProp (
   }
 }
 
-var simpleCheckRE = /^(String|Number|Boolean|Function|Symbol)$/;
+var simplecheckRE = /^(String|Number|Boolean|Function|Symbol)$/;
 
 function assertType (value, type) {
   var valid;
   var expectedType = getType(type);
-  if (simpleCheckRE.test(expectedType)) {
+  if (simplecheckRE.test(expectedType)) {
     var t = typeof value;
     valid = t === expectedType.toLowerCase();
     // for primitive wrapper objects
@@ -38574,7 +38574,7 @@ var warn$1;
 // in some cases, the event used has to be determined at runtime
 // so we used some reserved tokens during compile.
 var RANGE_TOKEN = '__r';
-var CHECKBOX_RADIO_TOKEN = '__c';
+var checkBOX_RADIO_TOKEN = '__c';
 
 function model (
   el,
@@ -38605,7 +38605,7 @@ function model (
   } else if (tag === 'select') {
     genSelect(el, value, modifiers);
   } else if (tag === 'input' && type === 'checkbox') {
-    genCheckboxModel(el, value, modifiers);
+    gencheckboxModel(el, value, modifiers);
   } else if (tag === 'input' && type === 'radio') {
     genRadioModel(el, value, modifiers);
   } else if (tag === 'input' || tag === 'textarea') {
@@ -38627,7 +38627,7 @@ function model (
   return true
 }
 
-function genCheckboxModel (
+function gencheckboxModel (
   el,
   value,
   modifiers
@@ -38754,9 +38754,9 @@ function normalizeEvents (on) {
   // This was originally intended to fix #4521 but no longer necessary
   // after 2.5. Keeping it for backwards compat with generated code from < 2.4
   /* istanbul ignore if */
-  if (isDef(on[CHECKBOX_RADIO_TOKEN])) {
-    on.change = [].concat(on[CHECKBOX_RADIO_TOKEN], on.change || []);
-    delete on[CHECKBOX_RADIO_TOKEN];
+  if (isDef(on[checkBOX_RADIO_TOKEN])) {
+    on.change = [].concat(on[checkBOX_RADIO_TOKEN], on.change || []);
+    delete on[checkBOX_RADIO_TOKEN];
   }
 }
 

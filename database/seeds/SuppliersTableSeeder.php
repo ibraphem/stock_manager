@@ -25,7 +25,7 @@ class SuppliersTableSeeder extends Seeder
                 'state' => $faker->state,
                 'zip' => $faker->postcode,
                 //'comment' => 'no comment',
-                'account' =>$faker->creditCardType,
+                'account' =>$faker->TransferType,
                 'prev_balance' => '10000',
                 'payment'=>$faker->randomNumber($nbDigits = 5, $strict = true),
                 'created_at' => date("Y-m-d H:i:s"),

@@ -1167,7 +1167,7 @@
     return _typeof(obj);
   }
 
-  function _classCallCheck(instance, Constructor) {
+  function _classCallcheck(instance, Constructor) {
     if (!(instance instanceof Constructor)) {
       throw new TypeError("Cannot call a class as a function");
     }
@@ -1245,7 +1245,7 @@
   /*#__PURE__*/
   function () {
     function Password(element, options) {
-      _classCallCheck(this, Password);
+      _classCallcheck(this, Password);
 
       this.options = options;
       this.$element = $(element);

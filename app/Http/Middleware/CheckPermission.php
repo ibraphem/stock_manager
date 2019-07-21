@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Support\Facades\Session;
 use Spatie\Permission\Models\Permission;
 
-class CheckPermission
+class checkPermission
 {
     /**
      * Handle an incoming request.
