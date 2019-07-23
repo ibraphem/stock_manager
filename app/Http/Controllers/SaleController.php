@@ -112,6 +112,9 @@ class SaleController extends Controller
             $payment->user_id = Auth::user()->id;
             $payment->save();
         }
+        if (Input::get('payment') == 0) {
+            $paid = 0;
+        }
         // process sale items
 
         foreach ($saleItems as $value) {

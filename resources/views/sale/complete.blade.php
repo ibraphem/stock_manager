@@ -1,126 +1,314 @@
-@extends('layouts.sale')
-@section('css')
-    <link rel="stylesheet" href="{{asset('css/print.css')}}">
-@endsection
-@section('content')
-<div class="content-wrapper sale-background" ng-app="tutapos">
-    <!-- Content Header (Page header) -->
-    <section class="content-header" >
-      <h1>{{__('Sales/Invoice')}}</h1>
-      
-    </section>
-    <!-- Main content -->
-    <section class="content panel" >
-        <div class="row">
-            <div class="col-md-3 col-sm-3 col-xs-3 bottom_border text-left">
-                <div class="sale-logo">
-                    @if(!empty(DB::table('flexible_pos_settings')->first()->logo_path))
-                    <img src="{{asset(DB::table('flexible_pos_settings')->first()->logo_path)}}" alt="logo" >
-                    @else
-                    <img src="{{asset('images/fpos.png')}}" alt="logo">
-                    @endif 
-                </div>
-            </div>
-            <div class="col-md-6 col-sm-6 col-xs-6 bottom_border text-center">
-                @if(!empty(DB::table('flexible_pos_settings')->first()->logo_path))
-                     <strong>{{DB::table('flexible_pos_settings')->first()->company_name}}</strong><br>
-                @else
-                 <strong>{{__('FLEXIBLEPOS')}}</strong><br>
-                @endif 
-                
-                @if(!empty(DB::table('flexible_pos_settings')->first()->company_address))
-                     {{DB::table('flexible_pos_settings')->first()->company_address}}<br>
-                @else
-                {{__('A reliable Company for your Business Software')}}<br>
-                {{__('PHONE')}} : 01779652777<br>
-                {{__('Infront of Hazera Taju Degree College,')}}<br>
-                {{__('Chandgaon, Chittagong, Bangladesh.')}}
-                @endif 
-                
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html" />
+	<meta name="author" content="lolkittens" />
+<!--    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>-->
 
-            </div>
-            <div class="col-md-3 col-sm-3 col-xs-3 bottom_border">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 
-            </div>
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+<!------ Include the above in your HEAD tag ---------->
+
+<!--Author      : @arboshiki-->
+
+	<title>Untitled 4</title>
+    <style>
+    
+    
+    #inventory-invoice{
+    padding: 30px;
+}
+#inventory-invoice a{text-decoration:none !important;}
+.invoice {
+    position: relative;
+    background-color: #FFF;
+    min-height: 680px;
+    padding: 15px
+}
+
+.invoice header {
+    padding: 10px 0;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #3989c6
+}
+
+.invoice .company-details {
+    text-align: right
+}
+
+.invoice .company-details .name {
+    margin-top: 0;
+    margin-bottom: 0
+}
+
+.invoice .contacts {
+    margin-bottom: 20px
+}
+
+.invoice .invoice-to {
+    text-align: left
+}
+
+.invoice .invoice-to .to {
+    margin-top: 0;
+    margin-bottom: 0
+}
+
+.invoice .invoice-details {
+    text-align: right
+}
+
+.invoice .invoice-details .invoice-id {
+    margin-top: 0;
+    color: #3989c6
+}
+
+.invoice main {
+    padding-bottom: 50px
+}
+
+.invoice main .thanks {
+    margin-top: -100px;
+    font-size: 2em;
+    margin-bottom: 50px
+}
+
+.invoice main .notices {
+    padding-left: 6px;
+    border-left: 6px solid #3989c6
+}
+
+.invoice main .notices .notice {
+    font-size: 1.2em
+}
+
+.invoice table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    margin-bottom: 20px
+}
+
+.invoice table td,.invoice table th {
+    padding: 15px;
+    background: #eee;
+    border-bottom: 1px solid #fff
+}
+
+.invoice table th{
+    white-space: nowrap;
+    font-weight: 400;
+    font-size: 16px;
+    border:1px solid #fff;
+}
+.invoice table td{
+    border:1px solid #fff;
+}
+.invoice table td h3 {
+    margin: 0;
+    font-weight: 400;
+    color: #3989c6;
+    font-size: 1.2em
+}
+
+.invoice table .tax,.invoice table .total,.invoice table .unit {
+    text-align: right;
+    font-size: 1.2em
+}
+
+.invoice table .no {
+    color: #fff;
+    font-size: 1.6em;
+    background: #0c0028
+}
+
+.invoice table .unit {
+    background: #ddd
+}
+
+.invoice table .total {
+    background: #0c0028;
+    color: #fff
+}
+
+.invoice table tfoot td {
+    background: 0 0;
+    border-bottom: none;
+    white-space: nowrap;
+    text-align: right;
+    padding: 10px 20px;
+    font-size: 1.2em;
+    border-top: 1px solid #aaa
+}
+
+.invoice table tfoot tr:first-child td {
+    border-top: none
+}
+
+.invoice table tfoot tr:last-child td {
+    color: #3989c6;
+    font-size: 1.4em;
+    border-top: 1px solid #3989c6
+}
+
+.invoice table tfoot tr td:first-child {
+    border: none
+}
+
+.invoice footer {
+    width: 100%;
+    text-align: center;
+    color: #777;
+    border-top: 1px solid #aaa;
+    padding: 8px 0
+}
+
+@media print {
+    .invoice {
+        font-size: 11px!important;
+        overflow: hidden!important
+    }
+
+    .invoice footer {
+        position: absolute;
+        bottom: 10px;
+        page-break-after: always
+    }
+
+    .invoice>div:last-child {
+        page-break-before: always
+    }
+}
+    </style>
+</head>
+
+<body>
+<div id="inventory-invoice">
+
+    <div class="toolbar hidden-print">
+        <div class="text-right">
+            <button id="printInvoice" class="btn btn-info"><i class="fa fa-print"></i> Print</button>
+           <!-- <button class="btn btn-info"><i class="fa fa-file-pdf-o"></i> Export as PDF</button> -->
         </div>
-        <div class="row header-border margin-bottom-15"></div>
-        <div class="row bottom_border sale-heading-info">
-
-                <div class="col-md-7 col-sm-7 col-xs-6 text-left">
-                    {{trans('sale.customer')}}: {{ $sales->customer->name}}<br />
-                    @if(!empty($sales->customer->address))
-                    {{trans('sale.address')}}: {{ $sales->customer->address}}<br />
-                    @endif
-                    {{trans('sale.sale_id')}}: SALE{{$saleItemsData->sale_id}}<br />
-
+        <hr>
+    </div>
+    <div class="invoice overflow-auto">
+        <div style="min-width: 600px">
+            <header>
+                <div class="row">
+                    <div class="col">
+                    <img src="{{asset('images/yareecee1.png')}}" alt="receipt-logo" style="height: 150px;  margin-top: -25px;">
+                         <!--   <img src="asset/images/yareecee1.png" style="height: 150px;" /> -->
+                    </div>
+                    <div class="col company-details" style="margin-top: -55px;">
+                    <sup style="color: red;"><b>REG: 887372</b></sup>
+                        <h2 class="name" style="color: #0c0028;" >
+                            
+                            YAREECEE VENTURES
+                        </h2>
+                        <div><span style="color: red;"><b>Head Office:</b></span><span style="color: #0c0028;"> 13B, Baale Animashaun Road, Dalemo, Alakuko, Lagos</span></div>
+                        <div><span style="color: red;"><b>Annex Office:</b></span><span style="color: #0c0028;"> 48, Fakoya Street, Egbeda, Akowonjo, Lagos</span></div>
+                       <div> <span style="color: red;"><b>Telephone No:</b></span><span style="color: #0c0028;"> 08033674382, 08025719488</span></div>
+                      <div>  <span style="color: red;"><b>Email:</b></span><span style="color: #0c0028;"> yareeceeventures@gmail.com</span></div>
+                    </div>
                 </div>
-                <div class="col-md-5 col-sm-5 col-xs-6 text-right">
-                    Date : {{ Carbon\Carbon::now() }}<br>
-                    @if(!empty($sales->customer->phone_number))
-                    {{trans('sale.mobile')}} : {{$sales->customer->phone_number}}<br>
-                    @endif
-                    {{trans('sale.employee')}}: {{$sales->user->name}}<br />
+            </header>
+            <main>
+                <div class="row contacts">
+                    <div class="col invoice-to">
+                        <div class="text-gray-light">INVOICE TO:</div>
+                        <h2 class="to">{{ $sales->customer->name}}</h2>
+                        <div class="address">{{ $sales->customer->address}}</div>
+                        <div class="email"><a href="mailto:test@example.com">{{ $sales->customer->email}}</a></div>
+                    </div>
+                    <div class="col invoice-details">
+                        <h1 class="invoice-id">SALE{{$saleItemsData->sale_id}}</h1>
+                        <div class="date">Date: {{ Carbon\Carbon::now() }}</div>
+                        <div class="date">Employee: {{$sales->user->name}}</div>
+                    </div>
                 </div>
-
-        </div>
-        <div class="row header-border2"></div>
-        <div class="row bottom_border">
-            <div class="col-md-12 col-sm-12 col-xs-12">
-                <div class="table-responsive font-size-15">
-                    <table class="table">
-                        <thead>
+                <table border="0" cellspacing="0" cellpadding="0">
+                    <thead>
                         <tr>
-                            <td>{{trans('sale.item')}}</td>
-                            <td>{{trans('sale.price')}}</td>
-                            <td>{{trans('sale.qty')}}</td>
-                            <td align="right">{{trans('sale.total')}}</td>
+                            <th class="text-left">ITEM</th>
+                            <th class="text-right">PRICE</th>
+                            <th class="text-right">QTY</th>
+                            <th class="text-right">TOTAL</th>
                         </tr>
-                        </thead>
-                        @foreach($saleItems as $value)
+                    </thead>
+                    <tbody>
+                    @foreach($saleItems as $value)
                             <tr>
-                                <td>{{$value->item->item_name}}</td>
-                                <td>{{$value->selling_price}}</td>
-                                <td>{{$value->quantity}}</td>
-                                <td align="right">{{$value->total_selling}}</td>
+                                <td class="no">{{$value->item->item_name}}</td>
+                                <td class="total">&#x20A6; &nbsp; {{$value->selling_price}}</td>
+                                <td class="no">{{$value->quantity}}</td>
+                                <td class="total" align="right">&#x20A6; &nbsp; {{$value->total_selling}}</td>
                             </tr>
                         @endforeach
-                    </table>
+           
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td></td>
+                            <td colspan="2">SUBTOTAL</td>
+                            <td>&#x20A6; &nbsp;{{ $sales->discount + $sales->grand_total - $sales->tax }}</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td colspan="2">Discount</td>
+                            <td> &#x20A6; &nbsp; {{ $sales->discount }}</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td colspan="2">PAYMENT</td>
+                            <td>&#x20A6; &nbsp; {{ $sales->payment }}</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td colspan="2">TAX</td>
+                            <td>&#x20A6; &nbsp; {{ $sales->tax }}</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td colspan="2" style="color: red;">BALANCE</td>
+                            <td style="color: red;">&#x20A6; &nbsp; {{ $sales->dues }}</td>
+                        </tr>
+                    </tfoot>
+                </table>
+                <div style="color: #0c0028;" class="thanks">Thank you!</div>
+                <div class="notices">
+                    <div style="color: #0c0028;"><b>No return of money after payment.</b></div>
+                    <div class="notice">Goods sold in good condition are not returnable.</div>
                 </div>
-            </div>
+            </main>
+            <footer>
+                <div style="color: red;"><b>Dealers In All Kinds Of Electronic Appliances And General Contractors</b></div>
+                <div style="color: red;"><b>Refridgerator, Freezers, Home Theatre, Generator, LCD TV, Air Condition,Electric Iron, Blender Kettle ETC</b></div>
+            </footer>
         </div>
-        <div class="row bottom_border print_footer header-border font-size-15">
-            <div class="col-md-7 col-sm-7 col-xs-6">
-                {{trans('sale.payment_type')}}: {{$sales->payment_type}}
-            </div>
-            <div class="col-md-2 col-sm-1"></div>
-            <div class="col-md-3 col-sm-4 col-xs-6">
-                <div class="row">
-                    <div class="col-xs-4">{{__('Subtotal')}}: </div><div class="col-xs-8"> <span class="text-left">$</span><span class="pull-right"> {{ $sales->discount + $sales->grand_total - $sales->tax }}</span></div>
-                    <div class="col-xs-4">{{__('Discount')}}: </div>
-                    <div class="col-xs-8"> 
-                        <span class="text-left"> $</span><span class="pull-right"> {{ $sales->discount }}</span>
-                    </div>
-                    <div class="col-xs-4">{{__('Payment')}}: </div>
-                    <div class="col-xs-8"> 
-                        <span class="text-left"> $</span><span class="pull-right"> {{ $sales->payment }}</span>
-                    </div>
-                    <div class="col-xs-4">{{__('Tax')}}: </div><div class="col-xs-8"> <span class="text-left">$</span><span class="pull-right"> {{ $sales->tax }}</span></div>
-                    <div class="col-xs-4">{{__('Dues')}}: </div><div class="col-xs-8"> <span class="text-left">$</span><span class="pull-right"> {{ $sales->dues }}</span></div>
-                </div>
-            </div>
-        </div>
-        <hr class="hidden-print"/>
-        <div class="row">
-            <div class="col-md-8">
-                &nbsp;
-            </div>
-            <div class="col-md-2">
-                <button type="button" onclick="printInvoice()" class="btn btn-info pull-right hidden-print">{{trans('sale.print')}}</button>
-            </div>
-            <div class="col-md-2">
-                <a href="{{ url('/sales') }}" type="button" class="btn btn-info pull-right hidden-print">{{trans('sale.new_sale')}}</a>
-            </div>
-        </div>
-    </section>
+        <div></div>
+    </div>
 </div>
-@endsection
+<script>
+ $('#printInvoice').click(function(){
+            Popup($('.invoice')[0].outerHTML);
+            function Popup(data) 
+            {
+                window.print();
+                return true;
+            }
+        });
+</script>
+</body>
+</html>

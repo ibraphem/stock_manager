@@ -73,7 +73,7 @@
                                     <label for="total" class="col-sm-4 control-label">{{trans('receiving.amount_tendered')}}</label>
                                     <div class="col-sm-8">
                                         <div class="input-group">
-                                            <div class="input-group-addon">$</div>
+                                            <div class="input-group-addon"> &#x20A6;</div>
                                             <input type="text" class="form-control" name="total" id="amount_tendered" ng-model="amount_tendered" required/>
                                         </div>
                                     </div>
@@ -83,7 +83,7 @@
                                     <label for="total" class="col-sm-4 control-label">{{trans('receiving.amount_payment')}}</label>
                                     <div class="col-sm-8">
                                         <div class="input-group">
-                                            <div class="input-group-addon">$</div>
+                                            <div class="input-group-addon"> &#x20A6;</div>
                                             <input type="text" class="form-control" name="payment" id="payment" ng-model='payment' required/>
                                         </div>
                                     </div>

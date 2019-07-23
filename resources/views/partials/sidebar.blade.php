@@ -23,18 +23,18 @@
 		    <li class="{{(Request::is('items')) ? 'active' : ''}} "><a href="{{ url('/items') }}"><i class="fa fa-bars"></i> <span>Stocks</span></a></li>
           @endif
 		<!-- <li><a href="{{ url('/item-kits') }}">{{trans('menu.item_kits')}}</a></li> -->
-          @if(auth()->user()->hasPermissionTo('suppliers.index'))
+      <!--    @if(auth()->user()->hasPermissionTo('suppliers.index'))
             <li class="{{(Request::is('suppliers')) ? 'active' : ''}} "><a href="{{ url('/suppliers') }}"><i class="fa fa-cubes"></i> <span>{{trans('menu.suppliers')}}</span></a></li>
           @endif
           @if(auth()->user()->hasPermissionTo('receivings.index'))
 		    <li class="{{(Request::is('receivings')) ? 'active' : ''}} "><a href="{{ url('/receivings') }}"><i class="fa fa-sitemap"></i> <span>{{trans('menu.receivings')}}</span></a></li>
-          @endif
+          @endif -->
           @if(auth()->user()->hasPermissionTo('sales.index'))
 		    <li class="{{(Request::is('sales')) ? 'active' : ''}} "><a href="{{ url('/sales') }}">
                 <i class="fa fa-shopping-cart"></i> <span>{{trans('menu.sales')}}</span></a>
             </li>
           @endif
-          @if(auth()->user()->hasPermissionTo('accounts.index'))
+  <!--         @if(auth()->user()->hasPermissionTo('accounts.index'))
       <li class="{{(Request::is('accounts')) ? 'active' : ''}} treeview">
           <a href="#"><i class="fa fa-university"></i> <span>{{trans('menu.accounts')}}</span><span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span></a>
           <ul class="treeview-menu">
@@ -45,8 +45,9 @@
                   <a href="{{ url('transactions') }}"><i class="fa fa-circle-o"></i> Transactions</a>
               </li>
           </ul>
-      </li>
-          @endif
+   </li>
+
+            @endif
           @if(auth()->user()->hasPermissionTo('expense.index'))
     <li class="{{(Request::is('expense')) ? 'active' : ''}} treeview">
       <a href="#">
@@ -59,7 +60,7 @@
         <li class="{{(Request::is('expense')) ? 'active' : ''}}"><a href="{{ url('/expense') }}"><i class="fa fa-circle-o"></i> <span>{{trans('menu.expense')}}</span></a></li>
         <li class="{{(Request::is('expensecategory')) ? 'active' : ''}}"><a href="{{ url('expensecategory') }}"><i class="fa fa-circle-o"></i> Expense Category</a></li>
       </ul>
-    </li>
+    </li> -->
     @endif
     @if(auth()->user()->hasPermissionTo('reports.getsales'))
     <li class="{{(Request::is('reports')) ? 'active' : ''}} treeview">
@@ -70,7 +71,7 @@
         </span>
       </a>
       <ul class="treeview-menu">
-        <li class="{{(Request::is('reports/receivings')) ? 'active' : ''}}"><a href="{{ url('/reports/receivings') }}"><i class="fa fa-circle-o"></i> {{trans('menu.receivings_report')}}</a></li>
+      <!--  <li class="{{(Request::is('reports/receivings')) ? 'active' : ''}}"><a href="{{ url('/reports/receivings') }}"><i class="fa fa-circle-o"></i> {{trans('menu.receivings_report')}}</a></li> -->
         <li class="{{(Request::is('reports/sales')) ? 'active' : ''}}"><a href="{{ url('/reports/sales') }}"><i class="fa fa-circle-o"></i> {{trans('menu.sales_report')}}</a></li>
         <li class="{{(Request::is('reports/getsale')) ? 'active' : ''}}"><a href="{{ url('/reports/getsale') }}"><i class="fa fa-circle-o"></i> {{trans('menu.print_sales_report')}}</a></li>
         <li class="{{(Request::is('reports/dailyreport/create')) ? 'active' : ''}}"><a href="{{ url('/reports/dailyreport/create') }}"><i class="fa fa-circle-o"></i> {{trans('menu.daily_report')}}</a></li>

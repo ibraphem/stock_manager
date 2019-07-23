@@ -56,15 +56,15 @@
             </div>
             <div class="col-xs-6 col-sm-4 header-border2">
                 <div class="row">
-                    <div class="col-xs-6">{{trans('receiving.amount_tendered')}}: </div><div class="col-xs-6"> <span class="text-left">$</span><span class="pull-right"> {{$receivings->total}}</span></div>
+                    <div class="col-xs-6">{{trans('receiving.amount_tendered')}}: </div><div class="col-xs-6"> <span class="text-left"> &#x20A6;</span><span class="pull-right"> {{$receivings->total}}</span></div>
                     
                     <div class="col-xs-6">{{trans('receiving.amount_payment')}}:</div>
                     <div class="col-xs-6"> 
-                        <span class="text-left">$</span><span class="pull-right"> {{$receivings->payment}}</span>
+                        <span class="text-left"> &#x20A6;</span><span class="pull-right"> {{$receivings->payment}}</span>
                     </div>
                     
                     <div class="col-xs-6">{{trans('receiving.amount_dues')}} : </div>
-                    <div class="col-xs-6"> <span class="text-left">$</span><span class="pull-right"> {{$receivings->dues}}</span></div>
+                    <div class="col-xs-6"> <span class="text-left"> &#x20A6;</span><span class="pull-right"> {{$receivings->dues}}</span></div>
                 </div>
             </div>
         </div>

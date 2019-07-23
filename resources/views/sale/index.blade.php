@@ -106,7 +106,7 @@
                                     <label for="total" class="col-sm-5 control-label">{{trans('sale.add_discount_flat')}}</label>
                                     <div class="col-sm-7">
                                         <div class="input-group">
-                                            <div class="input-group-addon">$</div>
+                                            <div class="input-group-addon"> &#x20A6;</div>
                                             <input type="number" class="form-control" name="discount" id="add_payment" ng-model="add_discount" ng-init="add_discount =0" required/>
                                         </div>
                                     </div>
@@ -115,7 +115,7 @@
                                     <label for="total" class="col-sm-5 control-label">{{trans('sale.add_discount_percent')}}</label>
                                     <div class="col-sm-7">
                                         <div class="input-group">
-                                            <div class="input-group-addon">$</div>
+                                            <div class="input-group-addon"> &#x20A6;</div>
                                             <input type="number" class="form-control" name="discount_percent" id="add_payment" ng-model="add_discount_percent" ng-init="add_discount_percent =0" required/>
                                         </div>
                                     </div>
@@ -124,7 +124,7 @@
                                     <label for="total" class="col-sm-5 control-label">{{trans('sale.add_payment')}}</label>
                                     <div class="col-sm-7">
                                         <div class="input-group">
-                                            <div class="input-group-addon">$</div>
+                                            <div class="input-group-addon"> &#x20A6;</div>
                                             <input type="number" class="form-control" name="payment" id="add_payment" ng-model="add_payment" ng-init="add_payment =0" required/>
                                         </div>
                                     </div>
@@ -146,19 +146,19 @@
                                 <div class="form-group">
                                     <label for="amount_due" class="col-sm-4 control-label">{{trans('sale.amount_discount')}}</label>
                                     <div class="col-sm-8">
-                                        <p class="form-control-static"><b>@{{ (sum(saletemp)*add_discount_percent /100) + add_discount  | currency}}</b></p>
+                                     <p class="form-control-static"><b>&#x20A6;&nbsp;@{{(sum(saletemp)*add_discount_percent /100) + add_discount}}</b></p>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="amount_due" class="col-sm-4 control-label">{{trans('sale.amount_payment')}}</label>
                                     <div class="col-sm-8">
-                                        <p class="form-control-static"><b>@{{ add_payment | currency}}</b></p>
+                                        <p class="form-control-static"><b>&#x20A6;&nbsp;@{{ add_payment}}</b></p>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="tax" class="col-sm-4 control-label">{{trans('sale.tax')}}</label>
                                     <div class="col-sm-8">
-                                        <p class="form-control-static">@{{ (0*(sum(saletemp))/100) | currency}}</p>
+                                        <p class="form-control-static">&#x20A6;&nbsp;@{{ (0*(sum(saletemp))/100)}}</p>
                                     </div>
                                 </div>
 
@@ -166,7 +166,7 @@
                                     <label for="grand_total" class="col-sm-4 control-label">{{trans('sale.grand_dues')}}</label>
                                     <div class="col-sm-8">
                                     <p class="form-control-static">
-                                        <b>@{{ (sum(saletemp) - add_payment - add_discount - (sum(saletemp)*add_discount_percent /100))+ (0*(sum(saletemp))/100) | currency}}</b>
+                                        <b>&#x20A6;&nbsp;@{{ (sum(saletemp) - add_payment - add_discount - (sum(saletemp)*add_discount_percent /100))+ (0*(sum(saletemp))/100)}}</b>
                                     </p>
                                     </div>
                                 </div>
