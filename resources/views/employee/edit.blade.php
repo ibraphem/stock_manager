@@ -1,4 +1,5 @@
 @extends('layouts.admin')
+
 @section('content')
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -27,7 +28,6 @@
             <div class="box-body">
 				<div class="box-header"></div>
 				<div class="col-md-6">
-				{{---dd($employee)---}}
 					@if(isset($employee))
 						{{ Form::model($employee, array('route' => array('employees.update', $employee->id), 'method' => 'PUT')) }}
 					@else
@@ -50,20 +50,14 @@
 					<div class="form-group row">
 						{{ Form::label('password', trans('employee.password'), ['class'=>'col-sm-3 text-right']) }}
 						<div class="col-sm-9"> 
-					
-							<input type="password" id="password-field" class="form-control" value="@if(isset($employee)){{$employee->password}}@endif" name="password" placeholder="Password">
-							<!--div class="input-group-append">-->
-								<span toggle="#password-field" class="fa fa-lg fa-eye field-icon toggle-password"></span>
-							<!--</div>-->
+							<input type="password" class="form-control" name="password" placeholder="Password">
 						</div>
-						
 					</div>
 
 					<div class="form-group row">
 						{{ Form::label('password_confirmation', trans('employee.confirm_password'), ['class'=>'col-sm-3 text-right']) }}
 						<div class="col-sm-9"> 
-							<input type="password" id="password_confirm" class="form-control" value="@if(isset($employee)){{$employee->password}}@endif" name="password_confirmation" placeholder="Confirm Password">
-							<span toggle="#password_confirm" class="fa fa-lg fa-eye field-icon toggle-password-new"></span>
+							<input type="password" class="form-control" name="password_confirmation" placeholder="Confirm Password">
 						</div>
 					</div>
 
@@ -83,26 +77,4 @@
     </section>
     <!-- /.content -->
   </div>
-@endsection
-@section('script')
-<script type="text/javascript">
-$(".toggle-password").click(function() {
-   $(this).toggleClass("fa-eye fa-eye-slash");
-   var input = $($(this).attr("toggle"));
-   if (input.attr("type") == "password") {
-     input.attr("type", "text");
-   } else {
-     input.attr("type", "password");
-   }
-});
-$(".toggle-password-new").click(function() {
-   $(this).toggleClass("fa-eye fa-eye-slash");
-   var input = $($(this).attr("toggle"));
-   if (input.attr("type") == "password") {
-     input.attr("type", "text");
-   } else {
-     input.attr("type", "password");
-   }
-});
-</script>
 @endsection

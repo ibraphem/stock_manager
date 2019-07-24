@@ -1,8 +1,5 @@
-<?php 
-namespace App\Http\Controllers;
-use Illuminate\Support\Facades\Mail;
-Use App\Mail\CustomerRegistrationMail;
-Use App\Mail\LoginUpdateMail;
+<?php namespace App\Http\Controllers;
+
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\User;
@@ -44,8 +41,7 @@ class EmployeeController extends Controller
      * @return Response
      */
     public function create()
-    {       
-          
+    {
             return view('employee.edit');
     }
 
@@ -65,24 +61,9 @@ class EmployeeController extends Controller
         // store
         $users = new User;
         $users->name = Input::get('name');
-        $users->email = Input ::get('email');
-        $pword = Input::get('password');// Passwrod before encryption
-        //$users->password = Hash::make(Input::get('password'));
-        $users->password = encrypt(Input::get('password'));
+        $users->email = Input::get('email');
+        $users->password = Hash::make(Input::get('password'));
         $users->save();
-
-        if($users->save()){
-            //sending login details mail to newly creater user
-            $data = array(
-
-                'name' => $users->name,
-                'username' => $users->email ,
-                'password' => $pword             
-            ); 
-            Mail::to('info@thepath.com.ng')->send(new CustomerRegistrationMail($data));
-           
-        }
-
 
         Session::flash('message', __('You have successfully added employee'));
         return Redirect::to('employees');
@@ -95,19 +76,8 @@ class EmployeeController extends Controller
      * @return Response
      */
     public function edit($id)
-    {   
-       
-        $employees = User::find($id); 
-        /*
-        if (Hash::check('plain-text', $hashedPassword)) {
-            // The passwords match...
-        }*/
-        try {
-            $decrypted = decrypt($employees->password);
-            $employees->password = $decrypted;//dd($employees);
-         } catch (DecryptException $e) {
-            dd("Invalid password description Algorithm");
-         }
+    {
+        $employees = User::find($id);
         return view('employee.edit')
             ->with('employee', $employees);
     }
@@ -121,7 +91,7 @@ class EmployeeController extends Controller
     public function update(Request $request, $id)
     {
         if ($id == 1) {
-            Session::flash('message', 'You cannot edit admin on YAREECEE STOCK/SALES INVENTORY MANAGER');
+            Session::flash('message', 'You cannot edit admin on FlexiblePos v2.0');
             Session::flash('alert-class', 'alert-danger');
                 return Redirect::to('employees');
         } else {
@@ -138,24 +108,10 @@ class EmployeeController extends Controller
                 $users = User::find($id);
                 $users->name = Input::get('name');
                 $users->email = Input::get('email');
-                $pword = Input::get('password');// Passwrod before encryption
                 if (!empty(Input::get('password'))) {
-                    //$users->password = Hash::make(Input::get('password'));
-                    $users->password = encrypt(Input::get('password'));
+                    $users->password = Hash::make(Input::get('password'));
                 }
                 $users->save();
-
-                if($users->save()){
-                    //sending login details mail to newly creater user
-                    $data = array(
-        
-                        'name' => $users->name,
-                        'username' => $users->email ,
-                        'password' => $pword             
-                    ); 
-                    Mail::to('info@thepath.com.ng')->send(new LoginUpdateMail($data));
-                   
-                }
                 // redirect
                 Session::flash('message', __('You have successfully updated employee'));
                 return Redirect::to('employees');
