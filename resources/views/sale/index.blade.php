@@ -19,15 +19,16 @@
                 
                 <div class="row" ng-controller="SearchItemCtrl">
 
-                    <div class="col-md-3">
+                <div class="col-md-3">
                         <label>{{trans('sale.search_item')}} <input ng-model="searchKeyword" class="form-control"></label>
 
                         <table class="table table-hover">
                         <tr ng-repeat="item in items  | filter: searchKeyword | limitTo:10">
 
-                        <td>@{{item.item_name}}</td>
+                            
+                        <td>@{{item.item_name}}  | @{{item.quantity}}</td>
                         <td><button class="btn btn-success btn-xs" type="button" ng-click="addSaleTemp(item, newsaletemp)"><span class="glyphicon glyphicon-share-alt" aria-hidden="true"></span></button></td>
-
+                        
                         </tr>
                         </table>
                     </div>
