@@ -29,7 +29,7 @@
 <table class="table table-striped table-bordered table-responsive" id="myTable">
     <thead>
         <tr>
-            <td>{{trans('item.item_id')}}</td>
+    <!--        <td>{{trans('item.item_id')}}</td> -->
             <td>{{trans('item.upc_ean_isbn')}}</td>
             <td>{{trans('item.item_name')}}</td>
             <td>{{trans('item.size')}}</td>
@@ -37,18 +37,18 @@
             <td>{{trans('item.selling_price')}}</td>
             <td>{{trans('item.quantity')}}</td>
             <td>&nbsp;</td>
-            <td>{{trans('item.avatar')}}</td>
+         <!--   <td>{{trans('item.avatar')}}</td> -->
         </tr>
     </thead>
     <tbody>
     @foreach($item as $value)
-      @if( $value->quantity <= 5 && $value->quantity != 0)
+      @if( $value->quantity <= 5 && $value->quantity != 0 && $value->quantity > 0)
         <tr>
-            <td style="color:red">{{ $value->id }}</td>
+        <!--    <td style="color:red">{{ $value->id }}</td> -->
             <td style="color:red">{{ $value->upc_ean_isbn }}</td>
             <td style="color:red">{{ $value->item_name }}</td>
             <td style="color:red">{{ $value->size }}</td>
-            <td style="color:red">{{ $value->cost_price }}</td>
+           <!-- <td style="color:red">{{ $value->cost_price }}</td> -->
             <td style="color:red">{{ $value->selling_price }}</td>
             <td style="color:red">{{ $value->quantity }}</td>
             <td class="item_btn_group">
@@ -68,14 +68,14 @@
                   </ul>
                 </div>
             </td>
-            <td><img src="{{asset($value->avatar)}}" alt="" height="50"></td>
+     <!--       <td><img src="{{asset($value->avatar)}}" alt="" height="50"></td> -->
         </tr>
-        @elseif($value->quantity == 0)
-        <td style="color:#bfbfbf">{{ $value->id }}</td>
+        @elseif($value->quantity <= 0)
+      <!--  <td style="color:#bfbfbf">{{ $value->id }}</td>-->
             <td style="color:#bfbfbf">{{ $value->upc_ean_isbn }}</td>
             <td style="color:#bfbfbf">{{ $value->item_name }}</td>
             <td style="color:#bfbfbf">{{ $value->size }}</td>
-            <td style="color:#bfbfbf">{{ $value->cost_price }}</td>
+         <!--   <td style="color:#bfbfbf">{{ $value->cost_price }}</td> -->
             <td style="color:#bfbfbf">{{ $value->selling_price }}</td>
             <td style="color:#bfbfbf">{{ "Out of stock" }}</td>
             <td class="item_btn_group">
@@ -95,15 +95,15 @@
                   </ul>
                 </div>
             </td>
-            <td><img src="{{asset($value->avatar)}}" alt="" height="50"></td>
+        <!--    <td><img src="{{asset($value->avatar)}}" alt="" height="50"></td> -->
         </tr>
         @else
         <tr>
-            <td>{{ $value->id }}</td>
+          <!--  <td>{{ $value->id }}</td> -->
             <td>{{ $value->upc_ean_isbn }}</td>
             <td>{{ $value->item_name }}</td>
             <td>{{ $value->size }}</td>
-            <td>{{ $value->cost_price }}</td>
+         <!--   <td>{{ $value->cost_price }}</td> -->
             <td>{{ $value->selling_price }}</td>
             <td>{{ $value->quantity }}</td>
             <td class="item_btn_group">
@@ -123,7 +123,7 @@
                   </ul>
                 </div>
             </td>
-            <td><img src="{{asset($value->avatar)}}" alt="" height="50"></td>
+       <!--     <td><img src="{{asset($value->avatar)}}" alt="" height="50"></td> -->
         </tr>
         @endif
     @endforeach

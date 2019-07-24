@@ -22,7 +22,7 @@
 
 <!--Author      : @arboshiki-->
 
-	<title>Untitled 4</title>
+	<title>YAREECEE SALES/STOCK INVENTORY MANAGER</title>
     <style>
     
     
@@ -196,13 +196,7 @@
 <body>
 <div id="inventory-invoice">
 
-    <div class="toolbar hidden-print">
-        <div class="text-right">
-            <button id="printInvoice" class="btn btn-info"><i class="fa fa-print"></i> Print</button>
-           <!-- <button class="btn btn-info"><i class="fa fa-file-pdf-o"></i> Export as PDF</button> -->
-        </div>
-        <hr>
-    </div>
+
     <div class="invoice overflow-auto">
         <div style="min-width: 600px">
             <header>
@@ -300,7 +294,25 @@
         <div></div>
     </div>
 </div>
-<script>
+<!--<script>
+ $('#printInvoice').click(function(){
+            Popup($('.invoice')[0].outerHTML);
+            function Popup(data) 
+            {
+                window.print();
+                return true;
+            }
+        });
+</script>-->
+<hr>
+<div class="toolbar hidden-print">
+        <div class="text-right" style="margin-right: 40px;">
+            <button id="printInvoice" class="btn btn-info"><i class="fa fa-print"></i> Print</button>
+            <a href="{{ url('/sales') }}" type="button" class="btn btn-primary">{{trans('sale.new_sale')}}</a>
+           <!-- <button class="btn btn-info"><i class="fa fa-file-pdf-o"></i> Export as PDF</button> -->
+        </div>
+    </div>
+    <script>
  $('#printInvoice').click(function(){
             Popup($('.invoice')[0].outerHTML);
             function Popup(data) 

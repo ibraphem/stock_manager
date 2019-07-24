@@ -22,42 +22,55 @@
             <div class="box">
               <div class="box-header"></div>
             <div class="box-body">
-              <table id="myTable" class="table table-bordered table-striped">
+              <table id="myTable" class="table table-bordered table-striped table-responsive">
                 <thead>
                     <tr>
-                        <th width="50">{{trans('customer.customer_id')}}</th>
+                   <!--     <th>{{trans('customer.customer_id')}}</th> -->
                         <th>{{trans('customer.name')}}</th>
                         <th>{{trans('customer.email')}}</th>
                         <th>{{trans('customer.phone_number')}}</th>
-                        <th>{{trans('customer.avatar')}}</th>
+                       <!-- <th>{{trans('customer.avatar')}}</th> -->
                         <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
     @foreach($customer as $value)
         <tr>
-          <td>{{ $value->id }}</td>
+    <!--      <td>{{ $value->id }}</td> -->
           <td>{{ $value->name }}</td>
           <td>{{ $value->email }}</td>
           <td>{{ $value->phone_number }}</td>
-          <td><img src="{{asset($value->avatar)}}" alt="" height="50"></td>
-          <td class="item_btn_group">
+        <!--  <td><img src="{{asset($value->avatar)}}" alt="" height="50"></td> -->
+
+<!--        <td class="item_btn_group">
+        <div class = "btn-group">
+        <button type = "button" class = "btn btn-default dropdown-toggle" data-toggle = "dropdown">
+      Primary 
+      <span class = "caret"></span>
+      </button>
+      <ul class = "dropdown-menu" role = "menu">
+      <li><a href="{{ url('customers/' . $value->id . '/') }}"><i class="fa fa-eye"></i> View Profile</a></li>
+                  <li><a href="{{ url('customers/' . $value->id . '/edit') }}"><i class="fa fa-pencil"></i> {{trans('item.edit')}}</a></li>
+                  <li>
+        </ul> -->
+
+       <td class="item_btn_group">
               <div class="btn-group">
                 <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
                   <i class="fa fa-list"></i><span class="caret"></span>
                   <span class="sr-only">Toggle Dropdown</span>
                 </button>
                 <ul class="dropdown-menu" role="menu">
-                  <li><a href="{{ url('customers/' . $value->id . '/') }}"><i class="fa fa-eye"></i> View Profile</a></li>
-                  <li><a href="{{ url('customers/' . $value->id . '/edit') }}"><i class="fa fa-pencil"></i> {{trans('item.edit')}}</a></li>
+                  <li><a href="{{ url('customers/' . $value->id . '/') }}"><i class="fa fa-eye"></i> View</a></li>
+                  <li><a href="{{ url('customers/' . $value->id . '/edit') }}"><i class="fa fa-pencil"></i> Edit</a></li>
                   <li>
                       <a href="#" class="delete-form" onclick="return confirm('are you sure?')"><i class="fa fa-trash-o"></i>{{ Form::open(array('url' => 'customers/' . $value->id, 'class' => 'form-inline')) }}
                   {{ Form::hidden('_method', 'DELETE') }}
-                  {{ Form::submit(trans('item.delete'), array('class' => 'delete-btn')) }}
+                  {{ Form::submit(trans('Delete'), array('class' => 'delete-btn')) }}
               {{ Form::close() }}</a></li>
                 </ul>
               </div>
-          </td>
+          </td> 
             
         </tr>
     @endforeach

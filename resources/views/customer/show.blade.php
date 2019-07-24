@@ -61,7 +61,7 @@ if (trim($customer->avatar) != 'no-foto.png') {
         </div>
         <!-- /.box-header -->
         <div class="box-body">
-          <table class="table table-hover table-striped">
+          <table class="table table-hover table-striped table-responsive">
             <thead>
               <tr>
                 <th>{{__('Date')}}</th>
@@ -110,7 +110,7 @@ if (trim($customer->avatar) != 'no-foto.png') {
           <div class="active tab-pane" id="saledues">
             <!-- Post -->
             @if(count($saleReport_dues))
-              <table class="table table-striped table-bordered table-hover" id="myTable1">
+              <table class="table table-striped table-bordered table-hover table-responsive" id="myTable1">
                   <thead>
                   <tr>
                       <th width="50" class="hidden-print">{{__('ID')}}</th>
@@ -197,7 +197,7 @@ if (trim($customer->avatar) != 'no-foto.png') {
 
                       <tr class="collapse" id="detailedSales{{ $value->id }}">
                           <td colspan="10">
-                              <table class="table">
+                              <table class="table table-responsive">
                                   <tr>
                                       <td>{{trans('report-sale.item_id')}}</td>
                                       <td>{{trans('report-sale.item_name')}}</td>
@@ -232,7 +232,7 @@ if (trim($customer->avatar) != 'no-foto.png') {
           <div class="tab-pane" id="salescompleted">
             <!-- The timeline -->
             @if(count($saleReport_completed))
-              <table class="table table-striped table-bordered" id="list-sale-report">
+              <table class="table table-striped table-bordered table-responsive" id="list-sale-report">
                   <thead>
                   <tr>
                       <td width="50">{{__('ID')}}</td>
@@ -322,7 +322,7 @@ if (trim($customer->avatar) != 'no-foto.png') {
 
                       <tr class="collapse" id="detailedSales{{ $value->id }}">
                           <td colspan="10">
-                              <table class="table">
+                              <table class="table table-responsive">
                                   <tr>
                                       <td>{{trans('report-sale.item_id')}}</td>
                                       <td>{{trans('report-sale.item_name')}}</td>
