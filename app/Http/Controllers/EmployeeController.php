@@ -1,6 +1,8 @@
 <?php namespace App\Http\Controllers;
 
 use App\Http\Requests;
+use Illuminate\Support\Facades\Mail;
+Use App\Mail\CustomerRegistrationMail;
 use App\Http\Controllers\Controller;
 use App\User;
 use App\Http\Requests\EmployeeStoreRequest;
@@ -14,6 +16,7 @@ use \Hash;
 use Illuminate\Http\Request;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
+use Illuminate\Support\Str;
 
 class EmployeeController extends Controller
 {
@@ -53,17 +56,35 @@ class EmployeeController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'email' => 'required|unique:users',
-            'name'=>'required',
-            'password'=>'required|min:6',
-            'password_confirmation'=>'required|same:password'
+            'email'                 => 'required|unique:users',
+            'name'                  =>'required',
+            'status'                =>'required',
+            'password'              =>'required|min:6',
+            'password_confirmation' =>'required|same:password'
         ]);
         // store
         $users = new User;
-        $users->name = Input::get('name');
-        $users->email = Input::get('email');
-        $users->password = Hash::make(Input::get('password'));
+        $users->name        = Input::get('name');
+        $users->email       = Input::get('email');
+        $users->status      = Input::get('status');
+        $users->verifyToken = Str::random(40);
+        $pword              = Input::get('password');
+        $users->password    = Hash::make(Input::get('password'));
+
+        //dd($users);
         $users->save();
+
+        if($users->save()){
+            //sending login details mail to newly creater user
+            $data = array(
+
+                'name' => $users->name,
+                'username' => $users->email ,
+                'password' => $pword             
+            ); 
+            Mail::to('info@thepath.com.ng')->send(new CustomerRegistrationMail($data));
+           
+        }
 
         Session::flash('message', __('You have successfully added employee'));
         return Redirect::to('employees');
@@ -96,9 +117,10 @@ class EmployeeController extends Controller
                 return Redirect::to('employees');
         } else {
             $rules = array(
-            'name' => 'required',
-            'email' => 'required|email|unique:users,email,' . $id .'',
-            'password' => 'nullable|min:6|max:30|confirmed',
+            'name'      => 'required',
+            'email'     => 'required|email|unique:users,email,' . $id .'',
+            'status'    => 'required',
+            'password'  => 'nullable|min:6|max:30|confirmed',
             );
             $validator = Validator::make(Input::all(), $rules);
             if ($validator->fails()) {
@@ -108,6 +130,7 @@ class EmployeeController extends Controller
                 $users = User::find($id);
                 $users->name = Input::get('name');
                 $users->email = Input::get('email');
+                $users->status = Input::get('status');
                 if (!empty(Input::get('password'))) {
                     $users->password = Hash::make(Input::get('password'));
                 }

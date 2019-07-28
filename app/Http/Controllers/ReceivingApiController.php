@@ -21,8 +21,11 @@ class ReceivingApiController extends Controller
      */
     public function index()
     {
-        $items = Item::get();
-        return Response::json(Item::get());
+        //$items = Item::get();
+        $items = Item::where('quantity', '>', 0)->get();
+        //dd($items);
+        return Response::json(Item::where('quantity', '>', 0)->get());
+        //return Response::json($items);
     }
 
     /**

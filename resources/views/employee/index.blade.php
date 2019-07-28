@@ -39,19 +39,29 @@
                         <td>{{trans('employee.person_id')}}</td>
                         <td>{{trans('employee.name')}}</td>
                         <td>{{trans('employee.email')}}</td>
-                        <td>&nbsp;</td>
+                        <td>Status</td>
+                        <td style="text-align:center">Roles</td>
                         <td>&nbsp;</td>
                     </tr>
                 </thead>
                 <tbody>
                 @foreach($employee as $value)
-                    <tr>
+                    <tr style=" @if(!$value->status){{$color = "background-color:#ffb3b3"}}@endif">
                         <td>{{ $value->id }}</td>
                         <td>{{ $value->name }}</td>
                         <td>{{ $value->email }}</td>
+                        
+                        <td>
+                            @if(!$value->status) 
+                                {{$status = "Inactive"}}
+                            @else 
+                                {{$status = "Active"}}
+                            @endif
+                         </td>
                         <td>@if(auth()->user()->hasPermissionTo('assaign.roles'))
                             <form action="{{route('assign.roles')}}" method="post">
                                 <input type="hidden" name="email" value="{{$value->email}}">
+                               
                                 @foreach($roles as $role)
                                 <span style="margin-right:30px"><input type="checkbox" name="role[]" value="{{$role->name}}" {{(\App\User::where('email',$value->email)->first()->hasRole($role->name)) ? 'checked' : ''}}>{{$role->name}}</span>
                                 @endforeach

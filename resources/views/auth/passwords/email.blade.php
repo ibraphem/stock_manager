@@ -5,7 +5,7 @@
     <div class="login-box">
         <div class="login-logo">
             <a href="#">
-                @if(!empty(DB::table('flexible_pos_settings')->first()->logo_path))
+               @if(!empty(DB::table('flexible_pos_settings')->first()->logo_path))
                     <img src="{{asset(DB::table('flexible_pos_settings')->first()->logo_path)}}" alt="" height="70px">
                 @else
                     <img src="{{asset('images/fpos.png')}}" alt="" height="70px">

@@ -46,7 +46,17 @@
 							{{ Form::text('email', null, array('class' => 'form-control')) }}
 						</div>
 					</div>
-
+					<div class="form-group row">
+							{{Form::label('status','Status*', ['class'=>'col-sm-3 text-right']) }}
+						<div class="col-sm-9"> 
+						{{Form::select("status",[1 => 'Active', 0 => 'Inactive'], null,
+							[
+								"class" => "form-control",
+								"placeholder" => "--status--"
+							])
+						}}
+						</div>
+                     </div>
 					<div class="form-group row">
 						{{ Form::label('password', trans('employee.password'), ['class'=>'col-sm-3 text-right']) }}
 						<div class="col-sm-9"> 

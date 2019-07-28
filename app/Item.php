@@ -27,5 +27,8 @@ class Item extends Model
     public function saleitem()
     {
         return $this->hasMany('App\SaleItem')->orderBy('id', 'DESC');
+        /*return $this->whereHas('items', function ($query) {
+        $query->where('quantity', '>', 0);
+        })->get();*/
     }
 }
