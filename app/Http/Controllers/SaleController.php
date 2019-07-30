@@ -38,6 +38,7 @@ class SaleController extends Controller
         $customers = Customer::all();
         return view('sale.index')
             ->with('sale', $sales)
+
             ->with('customers', $customers);
     }
 

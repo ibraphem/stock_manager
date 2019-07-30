@@ -99,7 +99,7 @@ class ItemController extends Controller
         $SaleTemps->total_cost = $item->cost_price;
         $SaleTemps->total_selling = $item->selling_price;
         $SaleTemps->save();
-
+        //dd($SaleTemps);
         return redirect()->back();
     }
 

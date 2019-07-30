@@ -55,7 +55,7 @@
                                     <div class="form-group">
                                         <label for="payment_type" class="col-sm-4 control-label">{{trans('receiving.payment_type')}}</label>
                                         <div class="col-sm-8">
-                                        {{ Form::select('payment_type', array('Cash' => 'Cash', 'check' => 'check', 'Debit Card' => 'Debit Card', 'Transfer' => 'Transfer'), null, array('class' => 'form-control','placeholder'=>'Select a Payment type', 'required')) }}
+                                        {{ Form::select('payment_type', array('Cash' => 'Cash', 'Cheque' => 'Cheque', 'Debit Card' => 'Debit Card', 'Transfer' => 'Transfer'), null, array('class' => 'form-control','placeholder'=>'Select a Payment type', 'required')) }}
                                         </div>
                                     </div>
                                 </div>
