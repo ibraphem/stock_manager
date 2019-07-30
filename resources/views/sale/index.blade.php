@@ -23,16 +23,19 @@
                         <label>{{trans('sale.search_item')}} <input ng-model="searchKeyword" class="form-control"></label>
 
                         <table class="table table-hover">
+                        
                         <tr ng-repeat="item in items  | filter: searchKeyword | limitTo:10">
-
-                            
+                        
+                        
                         <td>@{{item.item_name}}  | @{{item.quantity}}</td>
+                        <td style="display: none;" id="tableQty">@{{item.quantity}}</td>
                         <td><button class="btn btn-success btn-xs" type="button" ng-click="addSaleTemp(item, newsaletemp)"><span class="glyphicon glyphicon-share-alt" aria-hidden="true"></span></button></td>
                         
                         </tr>
                         </table>
                     </div>
                     <div class="col-md-9">
+                    
                         {{ Form::open(array('url' => 'sales', 'class' => 'form-horizontal')) }}
                         <div class="row">
                             <div class="col-md-5">
@@ -56,7 +59,7 @@
                                     <div class="col-sm-6 no-margin no-right-padding">
                                    <select class="form-control select2" name="customer_id" required>
                                       <option value="">{{__('Select Customer')}}</option>
-                                        @foreach($customers as $customer)
+                                        @foreach($customers as $customer) 
                                       <option value="{{$customer->id}}">{{$customer->name}}</option>
                                         @endforeach
                                     </select>
@@ -69,7 +72,7 @@
                                 <div class="form-group">
                                     <label for="payment_type" class="col-sm-4 control-label">{{trans('sale.payment_type')}}</label>
                                     <div class="col-sm-8">
-                                    {{ Form::select(__('payment_type'), ['Cash' => __('Cash'), 'check' => __('check'), 'DebitCard' => __('Debit Card'), 'Transfer' => __('Transfer')], null, array('class' => 'form-control','placeholder'=>__('Select a payment type'),'required')) }}
+                                    {{ Form::select(__('payment_type'), ['Cash' => __('Cash'), 'check' => __('Cheque'), 'DebitCard' => __('Debit Card'), 'Transfer' => __('Transfer')], null, array('class' => 'form-control','placeholder'=>__('Select a payment type'),'required')) }}
                                     </div>
                                 </div>
                             </div>
@@ -86,9 +89,9 @@
                             <tr ng-repeat="newsaletemp in saletemp">
                                 <td>@{{newsaletemp.item_id}}</td>
                                 <td>@{{newsaletemp.item.item_name}}</td>
-                                <td>@{{newsaletemp.item.selling_price | currency}}</td>
-                                <td><input type="text" style="text-align:center" autocomplete="off" name="quantity" ng-change="updateSaleTemp(newsaletemp)" ng-model="newsaletemp.quantity" size="2"></td>
-                                <td>@{{newsaletemp.item.selling_price * newsaletemp.quantity | currency}}</td>
+                                <td>&#x20A6;&nbsp;@{{newsaletemp.item.selling_price}}</td>
+                                <td><input type="text" style="text-align:center" onmouseout="checkQty()" autocomplete="off" id="formQty" name="quantity" ng-change="updateSaleTemp(newsaletemp)" ng-model="newsaletemp.quantity" size="2"/></td>
+                                <td>&#x20A6;&nbsp;@{{newsaletemp.item.selling_price * newsaletemp.quantity}}</td>
                                 <td>
                                     <button class="btn btn-danger btn-xs" type="button" ng-click="removeSaleTemp(newsaletemp.id)">
                                         <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
@@ -266,4 +269,25 @@
 @section('script')
     <script type="text/javascript" src="{{asset('js/angular.min.js')}}"></script>
     <script type="text/javascript" src="{{asset('js/sale.js')}}"></script>
+    <script>
+        
+        function checkQty(){
+            
+            var x = document.getElementById("formQty").value;
+            var y = document.getElementById("tableQty").innerHTML;
+            var z = x-y;
+            //alert(z);
+            
+            if(x > y) {
+                
+                alert("Required quantity is " + z +" unit(s) higher than available stock");
+                return false;
+            } 
+            
+            //tableQty(x);            
+                    
+        }
+
+
+    </script>
 @endsection

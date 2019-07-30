@@ -8,6 +8,6 @@ class ItemKit extends Model
 {
     public function itemkititem()
     {
-        return $this->hasMany('App\ItemKitItem');
+     //   return $this->hasMany('App\ItemKitItem');
     }
 }

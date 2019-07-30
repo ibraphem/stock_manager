@@ -35,7 +35,7 @@
 						{{ Form::open(array('url' => 'customers', 'files' => true,)) }}
 					@endif
 				<div class="col-sm-6">
-					<div class="form-group row">
+					<div class="form-group row" >
 					{{ Form::label('name', trans('customer.name') .' *',['class'=>'col-sm-3 text-right']) }}
 					<div class="col-sm-9"> 
 						{{ Form::text('name', null, array('class' => 'form-control', 'required')) }}
@@ -62,8 +62,19 @@
 							{{ Form::text('address', null, array('class' => 'form-control')) }}
 						</div>
 					</div>
-
+                    
 					<div class="form-group row">
+						{{ Form::label('prev_balance', trans('customer.prev_balance'),['class'=>'col-sm-3 text-right' ]) }}
+						<div class="col-sm-9">
+							@if(isset($customer))
+						{{ Form::number('prev_balance', null, ['class' => 'form-control', 'readonly'=>'' ]) }}
+								@else
+								{{ Form::number('prev_balance', 0, ['class' => 'form-control']) }}
+								@endif
+					</div>
+					</div>
+
+				<!--	<div class="form-group row">
 					{{ Form::label('city', trans('customer.city'),['class'=>'col-sm-3 text-right']) }}
 					<div class="col-sm-9"> 
 					{{ Form::text('city', null, array('class' => 'form-control')) }}
@@ -75,14 +86,14 @@
 						<div class="col-sm-9"> 
 						{{ Form::text('state', null, array('class' => 'form-control')) }}
 						</div>
-						</div>
+						</div> -->
 						<div class="row">
 							<div class="col-sm-9 col-sm-offset-3"> 
 						{{ Form::submit(trans('customer.submit'), array('class' => 'btn btn-primary')) }}
 						</div>
 						</div>
 				</div>
-				<div class="col-sm-6">
+			<!--	<div class="col-sm-6">
 					<div class="form-group row">
 						{{ Form::label('zip', trans('customer.zip'),['class'=>'col-sm-3 text-right']) }}
 						<div class="col-sm-9"> 
@@ -124,7 +135,7 @@
 							{{ Form::number('payment', 0, ['class' => 'form-control']) }}
 							@endif
 						</div>
-					</div>
+					</div> 
 					<div class="form-group row">
 						{{ Form::label('avatar', trans('customer.choose_avatar'),['class'=>'col-sm-3 text-right']) }}
 						<div class="col-sm-9">
@@ -134,7 +145,7 @@
 							@endif
 						</div>
 					</div>
-				</div>
+				</div> -->
 				{{ Form::close() }}
 			</div>
             <!-- /.box-body -->

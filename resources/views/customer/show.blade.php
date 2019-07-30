@@ -100,20 +100,22 @@ if (trim($customer->avatar) != 'no-foto.png') {
 
     </div>
     <!-- /.col -->
-    <div class="col-md-9">
-      <div class="nav-tabs-custom">
+    <div class="col-md-9 overflow-auto">
+      <div class="nav-tabs-custom ">
         <ul class="nav nav-tabs">
           <li class="active"><a href="#saledues" data-toggle="tab">{{__('Sales Open')}}</a></li>
           <li ><a href="#salescompleted" data-toggle="tab">{{__('Sales Completed')}}</a></li>
         </ul>
-        <div class="tab-content">
+        <div class="tab-content ">
+      <!--  <div class="invoice overflow-auto"> -->
           <div class="active tab-pane" id="saledues">
             <!-- Post -->
             @if(count($saleReport_dues))
-              <table class="table table-striped table-bordered table-hover table-responsive" id="myTable1">
+            <div class="table-responsive">
+              <table class="table table-striped table-bordered table-hover table-responsive" id="myTable1" style="width: auto;">
                   <thead>
                   <tr>
-                      <th width="50" class="hidden-print">{{__('ID')}}</th>
+                    <!--  <th width="50" class="hidden-print">{{__('ID')}}</th> -->
                       <th>{{trans('report-sale.date')}}</th>
                       <th>{{trans('report-sale.items_purchased')}}</th>
                       <th>{{trans('report-sale.sold_by')}}</th>
@@ -121,8 +123,8 @@ if (trim($customer->avatar) != 'no-foto.png') {
                       <th>{{trans('report-sale.total')}}</th>
                       <th>{{trans('report-sale.payment')}}</th>
                       <th>{{trans('report-sale.dues')}}</th>
-                      <th>{{trans('report-sale.payment_type')}}</th>
-                      <th>{{trans('report-sale.comments')}}</th>
+                    <!--  <th>{{trans('report-sale.payment_type')}}</th>
+                      <th>{{trans('report-sale.comments')}}</th> -->
                       <th width="60" class="hidden-print">&nbsp;</th>
                   </tr>
                   </thead>
@@ -131,7 +133,7 @@ if (trim($customer->avatar) != 'no-foto.png') {
 
                   @foreach($saleReport_dues as $value)
                       <tr>
-                          <td class="hidden-print">{{ $value->id }}</td>
+                        <!--  <td class="hidden-print">{{ $value->id }}</td>-->
                           
                           <td>{{ $value->created_at }}</td>
                           <td>{{DB::table('sale_items')->where('sale_id', $value->id)->sum('quantity')}}</td>
@@ -140,8 +142,8 @@ if (trim($customer->avatar) != 'no-foto.png') {
                           <td>&#8358;{{number_format($value->grand_total, 2 , '.' , ',' )}}</td>
                           <td>&#8358;{{number_format($value->payment, 2 , '.' , ',' )}} </td>
                           <td>&#8358;{{number_format($value->dues, 2 , '.' , ',' )}}</td>
-                          <td>{{ $value->payment_type }}</td>
-                          <td>{{ $value->comments }}</td>
+                       <!--   <td>{{ $value->payment_type }}</td>
+                          <td>{{ $value->comments }}</td> -->
                           <td class="hidden-print">
                             <div class="btn-group">
                                 <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
@@ -171,7 +173,7 @@ if (trim($customer->avatar) != 'no-foto.png') {
                                       <div class="modal-body">
                                         {{ Form::open(['route'=>'salepayments.store']) }}
                                         <div class="form-group">
-                                        {{ Form::select('payment_type', ['Cash' => 'Cash', 'check' => 'check', 'DebitCard' => 'Debit Card', 'Transfer' => 'Transfer'], null, array('class' => 'form-control','placeholder'=>'Select a payment type','required')) }}
+                                        {{ Form::select('payment_type', ['Cash' => 'Cash', 'Cheque' => 'Cheque', 'DebitCard' => 'Debit Card', 'Transfer' => 'Transfer'], null, array('class' => 'form-control','placeholder'=>'Select a payment type','required')) }}
                                         </div>
                                         <div class="form-group">
                                           {{ Form::hidden('sale_id', $value->id, ['class'=>'form-control']) }}
@@ -196,27 +198,32 @@ if (trim($customer->avatar) != 'no-foto.png') {
                       </tr>
 
                       <tr class="collapse" id="detailedSales{{ $value->id }}">
-                          <td colspan="10">
+                          <td colspan="5">
+                          
+                                
                               <table class="table table-responsive">
                                   <tr>
-                                      <td>{{trans('report-sale.item_id')}}</td>
+                            <!--          <td>{{trans('report-sale.item_id')}}</td> -->
                                       <td>{{trans('report-sale.item_name')}}</td>
                                       <td>{{trans('report-sale.quantity_purchase')}}</td>
                                       <td>{{trans('report-sale.total')}}</td>
-                                      <td>{{trans('report-sale.profit')}}</td>
+                                    <!--  <td>{{trans('report-sale.profit')}}</td> -->
                                   </tr>
                                   @foreach(App\Sale::sale_detailed($value->id) as $SaleDetailed)
                                       <tr>
-                                          <td>{{ $SaleDetailed->item_id }}</td>
+                                    <!--      <td>{{ $SaleDetailed->item_id }}</td>-->
                                           <td>{{ $SaleDetailed->item->item_name }}</td>
                                           <td>{{ $SaleDetailed->quantity }}</td>
                                           <td>{{ $SaleDetailed->selling_price * $SaleDetailed->quantity}}</td>
-                                          <td>{{ ($SaleDetailed->quantity * $SaleDetailed->selling_price) - ($SaleDetailed->quantity * $SaleDetailed->cost_price)}}</td>
+                                        <!--  <td>{{ ($SaleDetailed->quantity * $SaleDetailed->selling_price) - ($SaleDetailed->quantity * $SaleDetailed->cost_price)}}</td>-->
                                       </tr>
                                   @endforeach
                               </table>
+                            
                           </td>
+                          
                       </tr>
+                      
 
                   @endforeach
 
@@ -225,17 +232,21 @@ if (trim($customer->avatar) != 'no-foto.png') {
               @endif
             <!-- /.post -->
             <div class="paginations hidden-print">
+            
                 {{ $saleReport_dues->render() }}
             </div>
           </div>
+          </div>
           <!-- /.tab-pane -->
+          
           <div class="tab-pane" id="salescompleted">
             <!-- The timeline -->
             @if(count($saleReport_completed))
-              <table class="table table-striped table-bordered table-responsive" id="list-sale-report">
+            <div class="table-responsive">
+              <table class="table table-striped table-bordered table-responsive" id="list-sale-report ">
                   <thead>
                   <tr>
-                      <td width="50">{{__('ID')}}</td>
+                  <!--    <td width="50">{{__('ID')}}</td> -->
                       <td>{{trans('report-sale.date')}}</td>
                       <td>{{trans('report-sale.items_purchased')}}</td>
                       <td>{{trans('report-sale.sold_by')}}</td>
@@ -243,8 +254,8 @@ if (trim($customer->avatar) != 'no-foto.png') {
                       <td>{{trans('report-sale.total')}}</td>
                       <td>{{trans('report-sale.payment')}}</td>
                       <td>{{trans('report-sale.dues')}}</td>
-                      <td>{{trans('report-sale.payment_type')}}</td>
-                      <td>{{trans('report-sale.comments')}}</td>
+                  <!--    <td>{{trans('report-sale.payment_type')}}</td>
+                      <td>{{trans('report-sale.comments')}}</td> -->
                       <td width="60" class="hidden-print">&nbsp;</td>
                   </tr>
                   </thead>
@@ -253,7 +264,7 @@ if (trim($customer->avatar) != 'no-foto.png') {
 
                   @foreach($saleReport_completed as $value)
                       <tr>
-                          <td>{{ $value->id }}</td>
+                       <!--   <td>{{ $value->id }}</td> -->
                           
                           <td>{{ $value->created_at }}</td>
                           <td>{{DB::table('sale_items')->where('sale_id', $value->id)->sum('quantity')}}</td>
@@ -295,7 +306,7 @@ if (trim($customer->avatar) != 'no-foto.png') {
                                     <div class="modal-body">
                                       {{ Form::open(['route'=>'salepayments.store']) }}
                                       <div class="form-group">
-                                        {{ Form::select('payment_type', ['Cash' => 'Cash', 'check' => 'check', 'DebitCard' => 'Debit Card', 'Transfer' => 'Transfer'], null, array('class' => 'form-control','placeholder'=>'Select a payment type','required')) }}
+                                        {{ Form::select('payment_type', ['Cash' => 'Cash', 'Cheque' => 'Cheque', 'DebitCard' => 'Debit Card', 'Transfer' => 'Transfer'], null, array('class' => 'form-control','placeholder'=>'Select a payment type','required')) }}
                                       </div>
                                       <div class="form-group">
                                         {{ Form::hidden('sale_id', $value->id, ['class'=>'form-control']) }}
@@ -321,22 +332,22 @@ if (trim($customer->avatar) != 'no-foto.png') {
                       </tr>
 
                       <tr class="collapse" id="detailedSales{{ $value->id }}">
-                          <td colspan="10">
+                          <td colspan="5">
                               <table class="table table-responsive">
                                   <tr>
-                                      <td>{{trans('report-sale.item_id')}}</td>
+                                  <!--    <td>{{trans('report-sale.item_id')}}</td>-->
                                       <td>{{trans('report-sale.item_name')}}</td>
-                                      <td>{{trans('report-sale.quantity_purchase')}}</td>
+                                      <td>Qty</td>
                                       <td>{{trans('report-sale.total')}}</td>
-                                      <td>{{trans('report-sale.profit')}}</td>
+                                    <!--  <td>{{trans('report-sale.profit')}}</td>-->
                                   </tr>
                                   @foreach(App\Sale::sale_detailed($value->id) as $SaleDetailed)
                                       <tr>
-                                          <td>{{ $SaleDetailed->item_id }}</td>
+                                   <!--       <td>{{ $SaleDetailed->item_id }}</td> -->
                                           <td>{{ $SaleDetailed->item->item_name }}</td>
                                           <td>{{ $SaleDetailed->quantity }}</td>
                                           <td>{{ $SaleDetailed->selling_price * $SaleDetailed->quantity}}</td>
-                                          <td>{{ ($SaleDetailed->quantity * $SaleDetailed->selling_price) - ($SaleDetailed->quantity * $SaleDetailed->cost_price)}}</td>
+                                          <!--<td>{{ ($SaleDetailed->quantity * $SaleDetailed->selling_price) - ($SaleDetailed->quantity * $SaleDetailed->cost_price)}}</td> -->
                                       </tr>
                                   @endforeach
                               </table>
@@ -352,7 +363,10 @@ if (trim($customer->avatar) != 'no-foto.png') {
                 {{ $saleReport_completed->render() }}
             </div>
           </div>
+          </div>
+
           <!-- /.tab-pane -->
+       
         </div>
         <!-- /.tab-content -->
       </div>

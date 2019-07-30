@@ -19,9 +19,10 @@
             </div>
           </div>
             <!-- /.box-header -->
-            <div class="box">
+            <div class="box overflow-auto">
               <div class="box-header"></div>
             <div class="box-body">
+            <div class="table-responsive">
               <table id="myTable" class="table table-bordered table-striped table-responsive">
                 <thead>
                     <tr>
@@ -76,6 +77,7 @@
     @endforeach
     </tbody>
               </table>
+            </div>
             </div>
             <!-- /.box-body -->
           </div>

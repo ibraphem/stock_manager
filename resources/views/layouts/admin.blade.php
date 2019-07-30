@@ -8,6 +8,9 @@
   <!-- Tell the browser to be responsive to screen width -->
  <!-- <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">-->
  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  
+  
   @if(!empty(DB::table('flexible_pos_settings')->first()->fevicon_path))
   <link rel="icon" href="{{asset(DB::table('flexible_pos_settings')->first()->fevicon_path)}}"  />
   @else
@@ -36,24 +39,8 @@
   <![endif]-->
   <!-- Google Font -->
   <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
-        <Style>
-        table {
-  border-collapse: collapse;
-  border-spacing: 0;
-  width: 100%;
-  border: 1px solid #ddd;
-}
+        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic"/>
 
-th, td {
-  text-align: left;
-  padding: 8px;
-}
-
-tr:nth-child(even){background-color: #f2f2f2}
-        
-        
-        </Style>
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper" id="app">

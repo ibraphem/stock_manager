@@ -53,7 +53,7 @@
                 <div class="modal-body">
                   {{ Form::open(['route'=>'supplierpayments.store']) }}
                   <div class="form-group">
-                    {{ Form::select('payment_type', ['Cash' => 'Cash', 'check' => 'check', 'DebitCard' => 'Debit Card', 'Transfer' => 'Transfer'], null, array('class' => 'form-control','placeholder'=>'Select a payment type','required')) }}
+                    {{ Form::select('payment_type', ['Cash' => 'Cash', 'Cheque' => 'Cheque', 'DebitCard' => 'Debit Card', 'Transfer' => 'Transfer'], null, array('class' => 'form-control','placeholder'=>'Select a payment type','required')) }}
                   </div>
                   <div class="form-group">
                     {{ Form::hidden('supplier_id', $supplier->id, ['class'=>'form-control','required']) }}
@@ -192,7 +192,7 @@
                                           <div class="modal-body">
                                             {{ Form::open(['route'=>'receivingpayments.store']) }}
                                             <div class="form-group">
-                                              {{ Form::select('payment_type', ['Cash' => 'Cash', 'check' => 'check', 'DebitCard' => 'Debit Card', 'Transfer' => 'Transfer'], null, array('class' => 'form-control','placeholder'=>'Select a payment type','required')) }}
+                                              {{ Form::select('payment_type', ['Cash' => 'Cash', 'check' => 'Cheque', 'DebitCard' => 'Debit Card', 'Transfer' => 'Transfer'], null, array('class' => 'form-control','placeholder'=>'Select a payment type','required')) }}
                                             </div>
                                             <div class="form-group">
                                               {{ Form::hidden('receiving_id', $value->id, ['class'=>'form-control']) }}
@@ -309,7 +309,7 @@
                                     <div class="modal-body">
                                       {{ Form::open(['route'=>'receivingpayments.store']) }}
                                       <div class="form-group">
-                                        {{ Form::select('payment_type', ['Cash' => 'Cash', 'check' => 'check', 'DebitCard' => 'Debit Card', 'Transfer' => 'Transfer'], null, array('class' => 'form-control','placeholder'=>'Select a payment type','required')) }}
+                                        {{ Form::select('payment_type', ['Cash' => 'Cash', 'check' => 'Cheque', 'DebitCard' => 'Debit Card', 'Transfer' => 'Transfer'], null, array('class' => 'form-control','placeholder'=>'Select a payment type','required')) }}
                                       </div>
                                       <div class="form-group">
                                         {{ Form::hidden('receiving_id', $value->id, ['class'=>'form-control']) }}

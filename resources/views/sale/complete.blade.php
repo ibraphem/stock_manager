@@ -3,9 +3,11 @@
 <head>
 	<meta http-equiv="content-type" content="text/html" />
 	<meta name="author" content="lolkittens" />
+     <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <!--    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>-->
+
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 
@@ -21,6 +23,11 @@
 <!------ Include the above in your HEAD tag ---------->
 
 <!--Author      : @arboshiki-->
+    <link rel="stylesheet" type="text/css"  href="css/bootstrap.css"/>
+    <link rel="stylesheet" type="text/css"  href="css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css"  href="css/bootstrap-grid.css"/>
+    <link rel="stylesheet" type="text/css"  href="css/bootstrap-reboot.css"/>
+    
 
 	<title>YAREECEE SALES/STOCK INVENTORY MANAGER</title>
     <style>
@@ -177,7 +184,7 @@
 @media print {
     .invoice {
         font-size: 11px!important;
-        overflow: hidden!important
+        overflow: hidden!important;
     }
 
     .invoice footer {
@@ -194,18 +201,19 @@
 </head>
 
 <body>
+    <div class="container-fluid">
 <div id="inventory-invoice">
 
 
     <div class="invoice overflow-auto">
-        <div style="min-width: 600px">
+       <!-- <div style="min-width: 600px">--><div >
             <header>
                 <div class="row">
                     <div class="col">
                     <img src="{{asset('images/yareecee1.png')}}" alt="receipt-logo" style="height: 150px;  margin-top: -25px;">
                          <!--   <img src="asset/images/yareecee1.png" style="height: 150px;" /> -->
                     </div>
-                    <div class="col company-details" style="margin-top: -55px;">
+                    <div class="col company-details" style="margin-top: -45px;">
                     <sup style="color: red;"><b>REG: 887372</b></sup>
                         <h2 class="name" style="color: #0c0028;" >
                             
@@ -224,7 +232,8 @@
                         <div class="text-gray-light">INVOICE TO:</div>
                         <h2 class="to">{{ $sales->customer->name}}</h2>
                         <div class="address">{{ $sales->customer->address}}</div>
-                        <div class="email"><a href="mailto:test@example.com">{{ $sales->customer->email}}</a></div>
+                        <div class="email">{{ $sales->customer->email}}</div>
+                        
                     </div>
                     <div class="col invoice-details">
                         <h1 class="invoice-id">SALE{{$saleItemsData->sale_id}}</h1>
@@ -232,22 +241,23 @@
                         <div class="date">Employee: {{$sales->user->name}}</div>
                     </div>
                 </div>
-                <table border="0" cellspacing="0" cellpadding="0">
+                <div class="table-responsive">
+                <table class="table">
                     <thead>
                         <tr>
-                            <th class="text-left">ITEM</th>
-                            <th class="text-right">PRICE</th>
-                            <th class="text-right">QTY</th>
-                            <th class="text-right">TOTAL</th>
+                            <th scope="col">ITEM</th>
+                            <th scope="col">PRICE</th>
+                            <th scope="col">QTY</th>
+                            <th scope="col">TOTAL</th>
                         </tr>
                     </thead>
                     <tbody>
                     @foreach($saleItems as $value)
                             <tr>
-                                <td class="no">{{$value->item->item_name}}</td>
-                                <td class="total">&#x20A6; &nbsp; {{$value->selling_price}}</td>
-                                <td class="no">{{$value->quantity}}</td>
-                                <td class="total" align="right">&#x20A6; &nbsp; {{$value->total_selling}}</td>
+                                <td scope="col" style="background:#0c0028; color:white">  <h5>{{$value->item->item_name}}</h5></td>
+                                <td scope="col"style="background:#0c0028;color:white;">   <h5>&#x20A6; &nbsp; {{$value->selling_price}}</h5></td>
+                                <td scope="col"style="background:#0c0028;color:white">   <h5>{{$value->quantity}}</h5></td>
+                                <td scope="col"style="background:#0c0028;color:white">   <h5>&#x20A6; &nbsp;{{$value->total_selling}}</h5></td>
                             </tr>
                         @endforeach
            
@@ -255,45 +265,49 @@
                     <tfoot>
                         <tr>
                             <td></td>
-                            <td colspan="2">SUBTOTAL</td>
-                            <td>&#x20A6; &nbsp;{{ $sales->discount + $sales->grand_total - $sales->tax }}</td>
+                            <td colspan="2" scope="col">SUBTOTAL</td>
+                            <td>&#x20A6; {{ $sales->discount + $sales->grand_total - $sales->tax }}</td>
                         </tr>
                         <tr>
                             <td></td>
-                            <td colspan="2">Discount</td>
-                            <td> &#x20A6; &nbsp; {{ $sales->discount }}</td>
+                            <td colspan="2" scope="col">Discount</td>
+                            <td> &#x20A6;  {{ $sales->discount }}</td>
                         </tr>
                         <tr>
                             <td></td>
-                            <td colspan="2">PAYMENT</td>
-                            <td>&#x20A6; &nbsp; {{ $sales->payment }}</td>
+                            <td colspan="2" scope="col">PAYMENT</td>
+                            <td>&#x20A6;  {{ $sales->payment }}</td>
                         </tr>
                         <tr>
                             <td></td>
-                            <td colspan="2">TAX</td>
-                            <td>&#x20A6; &nbsp; {{ $sales->tax }}</td>
+                            <td colspan="2" scope="col">TAX</td>
+                            <td>&#x20A6;{{ $sales->tax }}</td>
                         </tr>
                         <tr>
                             <td></td>
-                            <td colspan="2" style="color: red;">BALANCE</td>
-                            <td style="color: red;">&#x20A6; &nbsp; {{ $sales->dues }}</td>
+                            <td colspan="2" scope="col" style="color: red;">BALANCE</td>
+                            <td style="color: red;">&#x20A6;  {{ $sales->dues }}</td>
                         </tr>
                     </tfoot>
                 </table>
-                <div style="color: #0c0028;" class="thanks">Thank you!</div>
+            </div>
+                <div style="color: #0c0028;"><h3>Thank you!</h3></div>
                 <div class="notices">
                     <div style="color: #0c0028;"><b>No return of money after payment.</b></div>
                     <div class="notice">Goods sold in good condition are not returnable.</div>
                 </div>
             </main>
             <footer>
+                 <dl class="dl-horizontal">
                 <div style="color: red;"><b>Dealers In All Kinds Of Electronic Appliances And General Contractors</b></div>
                 <div style="color: red;"><b>Refridgerator, Freezers, Home Theatre, Generator, LCD TV, Air Condition,Electric Iron, Blender Kettle ETC</b></div>
+            </dl>
             </footer>
         </div>
         <div></div>
     </div>
 </div>
+
 <!--<script>
  $('#printInvoice').click(function(){
             Popup($('.invoice')[0].outerHTML);
@@ -322,5 +336,6 @@
             }
         });
 </script>
+</div>
 </body>
 </html>

@@ -87,7 +87,7 @@
 					<div class="form-group row">
 						{{ Form::label('type', __('Payment Type'),['class'=>'col-sm-3 text-right']) }}
 						<div class="col-sm-9"> 
-						{{ Form::select('payment_type', ['cash'=>'Cash','bank'=>'Bank', 'bkash'=>'Bkash', 'check'=>'check'], null, array('class' => 'form-control')) }}
+						{{ Form::select('payment_type', ['cash'=>'Cash','bank'=>'Bank', 'bkash'=>'Bkash', 'check'=>'Cheque'], null, array('class' => 'form-control')) }}
 						</div>
 					</div>
 					<div class="form-group row">
