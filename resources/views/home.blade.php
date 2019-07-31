@@ -1,6 +1,4 @@
-{{--@extends('layouts.app')--}}
-@extends('layouts.admin')
-@section('content')
+@extends('layout.admin')@section('content')
 	<div class="content-wrapper">
 		<div class="row">
 			<div class="col-md-12">
@@ -14,7 +12,7 @@
 					<div class="row">
 					  <div class="col-sm-12 margin-bottom-20">
 						<div id="area-chart" ></div>
-						  <input type="hidden" id="chartData" value="{{ json_encode($incomeexpensechart) }}">
+						  <input type="hidden" id="chartData" value="{{json_encode($incomeexpensechart) }}">
 					  </div>
 					</div>
 					<div class="row">
