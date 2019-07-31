@@ -35,7 +35,7 @@
 						{{ Form::open(['url' => 'items', 'files' => true]) }}
 					@endif
 					<div class="form-group row">
-					{{ Form::label('upc_ean_isbn', trans('item.upc_ean_isbn').' *', ['class'=>'col-sm-3 text-right']) }}
+					{{ Form::label('upc_ean_isbn',"Item Reference *", ['class'=>'col-sm-3 text-right']) }}
 						<div class="col-sm-9"> 
 						{{ Form::text('upc_ean_isbn',null, ['class' => 'form-control', 'required']) }}
 						</div>
@@ -49,20 +49,20 @@
 					</div>
 
 					<div class="form-group row">
-					{{ Form::label('size', trans('item.size'), ['class'=>'col-sm-3 text-right']) }}
+					{{ Form::label('size', "Model", ['class'=>'col-sm-3 text-right']) }}
 					<div class="col-sm-9"> 
 					{{ Form::text('size', null, ['class' => 'form-control']) }}
 					</div>
 					</div>
 
-					<div class="form-group row">
+				<!--	<div class="form-group row">
 					{{ Form::label('description', trans('item.description'), ['class'=>'col-sm-3 text-right']) }}
 					<div class="col-sm-9"> 
 					{{ Form::textarea('description', null, ['class' => 'form-control']) }}
 					</div>
-					</div>
+					</div> -->
 
-					<div class="form-group row">
+				<!--	<div class="form-group row">
 					{{ Form::label('avatar', trans('item.choose_avatar'), ['class'=>'col-sm-3 text-right']) }}
 					<div class="col-sm-9">
 					{{ Form::file('avatar', null, ['class' => 'form-control']) }}
@@ -70,17 +70,17 @@
 						<img src="{{asset($item->avatar)}}" alt="" height="35">
 						@endif
 					</div>
-					</div>
+					</div> -->
 
-					<div class="form-group row">
+				<!--	<div class="form-group row">
 					{{ Form::label('cost_price', trans('item.cost_price').' *', ['class'=>'col-sm-3 text-right']) }}
 					<div class="col-sm-9"> 
 					{{ Form::text('cost_price', null, ['class' => 'form-control', 'required']) }}
 					</div>
-					</div>
+					</div> -->
 
 					<div class="form-group row">
-					{{ Form::label('selling_price', trans('item.selling_price').' *', ['class'=>'col-sm-3 text-right']) }}
+					{{ Form::label('selling_price',"Price", ['class'=>'col-sm-3 text-right']) }}
 					<div class="col-sm-9"> 
 					{{ Form::text('selling_price', null, ['class' => 'form-control', 'required']) }}
 					</div>

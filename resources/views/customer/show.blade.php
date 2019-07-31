@@ -112,7 +112,7 @@ if (trim($customer->avatar) != 'no-foto.png') {
             <!-- Post -->
             @if(count($saleReport_dues))
             <div class="table-responsive">
-              <table class="table table-striped table-bordered table-hover table-responsive" id="myTable1" style="width: auto;">
+              <table class="table table-striped table-bordered table-hover table-responsive" id="myTable1" style="width: 800px;">
                   <thead>
                   <tr>
                     <!--  <th width="50" class="hidden-print">{{__('ID')}}</th> -->

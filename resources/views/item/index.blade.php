@@ -30,13 +30,13 @@
     <thead>
         <tr>
     <!--        <td>{{trans('item.item_id')}}</td> -->
-            <td>{{trans('item.upc_ean_isbn')}}</td>
+            <td>Item Reference</td>
             <td>{{trans('item.item_name')}}</td>
-            <td>{{trans('item.size')}}</td>
-            <td>{{trans('item.cost_price')}}</td>
-            <td>{{trans('item.selling_price')}}</td>
-            <td>{{trans('item.quantity')}}</td>
-            <td>&nbsp;</td>
+            <td>Model</td>
+          <!--  <td>{{trans('item.cost_price')}}</td> -->
+            <td>Price</td>
+          <td>{{trans('item.quantity')}}</td>
+           <td>&nbsp;</td> 
          <!--   <td>{{trans('item.avatar')}}</td> -->
         </tr>
     </thead>

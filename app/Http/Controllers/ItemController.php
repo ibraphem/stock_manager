@@ -198,7 +198,7 @@ class ItemController extends Controller
             'upc_ean_isbn'=>'required|max:90',
             'size'=>'max:20',
             'item_name'=>'required|max:90',
-            'cost_price'=>'required|numeric|max:9999999',
+           // 'cost_price'=>'required|numeric|max:9999999',
             'selling_price'=>'required|numeric|max:9999999',
             'quantity'=>'required|integer|max:999999999'
         ]);
