@@ -18,13 +18,13 @@
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-md-4">
-                            <div class="well well-sm">{{trans('report-sale.grand_total')}}: {{DB::table('sales')->sum('grand_total')}}</div>
+                            <div class="well well-sm">{{trans('report-sale.grand_total')}}: &#x20A6;&nbsp;{{DB::table('sales')->sum('grand_total')}}</div>
                         </div>
                         <div class="col-md-4">
-                            <div class="well well-sm">{{trans('report-sale.payment')}}: {{DB::table('sales')->sum('payment')}}</div>
+                            <div class="well well-sm">{{trans('report-sale.payment')}}: &#x20A6;&nbsp; {{DB::table('sales')->sum('payment')}}</div>
                         </div>
                         <div class="col-md-4">
-                            <div class="well well-sm">{{trans('report-sale.dues')}}: {{DB::table('sales')->sum('dues')}}</div>
+                            <div class="well well-sm">{{trans('report-sale.dues')}}: &#x20A6;&nbsp; {{DB::table('sales')->sum('dues')}}</div>
                         </div>
                     </div>
                     <div class="row">
@@ -69,10 +69,10 @@
                                 <td>{{DB::table('sale_items')->where('sale_id', $value->id)->sum('quantity')}}</td>
                                 <td>{{ $value->user->name }}</td>
                                 <td>{{ $value->customer->name }}</td>
-                                <td>${{$value->grand_total}}</td>
+                                <td>&#x20A6;&nbsp;{{$value->grand_total}}</td>
                                
-                                <td>${{$value->payment}}</td>
-                                <td>${{$value->dues}}</td>
+                                <td>&#x20A6;&nbsp;{{$value->payment}}</td>
+                                <td>&#x20A6;&nbsp;{{$value->dues}}</td>
                                
                                 
                                 <td>{{ $value->payment_type }}</td>

@@ -27,7 +27,7 @@
                         <tr ng-repeat="item in items  | filter: searchKeyword | limitTo:10">
                         
                         
-                        <td>@{{item.item_name}}  | @{{item.quantity}}</td>
+                        <td>@{{item.size}}  | @{{item.quantity}}</td>
                         <td style="display: none;" id="tableQty">@{{item.quantity}}</td>
                         <td><button class="btn btn-success btn-xs" type="button" ng-click="addSaleTemp(item, newsaletemp)"><span class="glyphicon glyphicon-share-alt" aria-hidden="true"></span></button></td>
                         
@@ -273,16 +273,22 @@
         
         function checkQty(){
             
-            var x = document.getElementById("formQty").value;
-            var y = document.getElementById("tableQty").innerHTML;
-            var z = x-y;
-            //alert(z);
+            var x = document.getElementById("formQty").value;//required qty
+            var y = document.getElementById("tableQty").innerHTML;//stock qty
+            var x = x.trim();
+            var y = y.trim();
+            var x = parseInt(x);
+            var y = parseInt(y);
+           // alert(x);
+           // alert(y);
             
-            if(x > y) {
-                
+            if(x > y){
+                var z = x-y;
                 alert("Required quantity is " + z +" unit(s) higher than available stock");
                 return false;
-            } 
+            } else{
+                return true;
+            }
             
             //tableQty(x);            
                     

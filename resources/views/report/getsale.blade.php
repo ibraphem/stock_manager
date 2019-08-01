@@ -11,7 +11,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="panel panel-default">
-                    <nav class="multineed navbar navbar-default menu-export" role="navigation">
+                  <!--  <nav class="multineed navbar navbar-default menu-export" role="navigation">
                         <ul class="nav navbar-nav">
                             <li class="dropdown">
                                 <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="fa fa-mail-forward"></i> {{__('Export')}} <span class="caret"></span></a>
@@ -22,7 +22,7 @@
                                 </ul>
                             </li>
                         </ul>
-                    </nav>
+                    </nav> -->
                     <div class="panel-heading" style="padding-top: 6px;">{{trans('report-sale.reports')}} - {{trans('report-sale.sales_report')}}</div>
 
                     <div class="panel-body">

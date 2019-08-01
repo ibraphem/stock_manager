@@ -24,7 +24,7 @@
                 <td>{{DB::table('sale_items')->where('sale_id', $value->id)->sum('quantity')}}</td>
                 <td>{{ $value->user->name }}</td>
                 <td>{{ $value->customer->name }}</td>
-                <td>${{$value->grand_total}}</td>
+                <td>&#x20A6;&nbsp;{{$value->grand_total}}</td>
                 <td>{{$value->grand_total - DB::table('sale_items')->where('sale_id', $value->id)->sum('total_cost')}}</td>
                 <td>{{ $value->payment_type }}</td>
                 <td>{{ $value->comments }}</td>

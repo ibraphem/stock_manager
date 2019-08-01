@@ -74,7 +74,7 @@
       <!--  <li class="{{(Request::is('reports/receivings')) ? 'active' : ''}}"><a href="{{ url('/reports/receivings') }}"><i class="fa fa-circle-o"></i> {{trans('menu.receivings_report')}}</a></li> -->
         <li class="{{(Request::is('reports/sales')) ? 'active' : ''}}"><a href="{{ url('/reports/sales') }}"><i class="fa fa-circle-o"></i> {{trans('menu.sales_report')}}</a></li>
         <li class="{{(Request::is('reports/getsale')) ? 'active' : ''}}"><a href="{{ url('/reports/getsale') }}"><i class="fa fa-circle-o"></i> {{trans('menu.print_sales_report')}}</a></li>
-        <li class="{{(Request::is('reports/dailyreport/create')) ? 'active' : ''}}"><a href="{{ url('/reports/dailyreport/create') }}"><i class="fa fa-circle-o"></i> {{trans('menu.daily_report')}}</a></li>
+      <!--  <li class="{{(Request::is('reports/dailyreport/create')) ? 'active' : ''}}"><a href="{{ url('/reports/dailyreport/create') }}"><i class="fa fa-circle-o"></i> {{trans('menu.daily_report')}}</a></li>-->
       </ul>
     </li>
       @endif
