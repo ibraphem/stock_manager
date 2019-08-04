@@ -159,7 +159,7 @@ class SupplierController extends Controller
             'account'=>'max:20',
             'zip'=>'max:10',
             'phone_number'=>'max:20',
-            'prev_balance'=>'max:9999999999|numeric',
+        //    'prev_balance'=>'max:9999999999|numeric',
             'payment'=>'max:9999999999|numeric|nullable'
         ]);
     }

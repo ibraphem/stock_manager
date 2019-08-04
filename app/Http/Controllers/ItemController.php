@@ -196,7 +196,7 @@ class ItemController extends Controller
         return Validator::make($data, [
             'avatar'=>'mimes:jpeg,bmp,png|max:5120kb',
             'upc_ean_isbn'=>'required|max:90',
-            'size'=>'max:20',
+           // 'size'=>'max:20',
             'item_name'=>'required|max:90',
            // 'cost_price'=>'required|numeric|max:9999999',
             'selling_price'=>'required|numeric|max:9999999',

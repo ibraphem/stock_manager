@@ -167,7 +167,7 @@ class CustomerController extends Controller
             'account'=>'max:50',
             'zip'=>'max:10',
             'phone_number'=>'max:20',
-            'prev_balance'=>'max:999999|numeric',
+          //  'prev_balance'=>'max:99999999999|numeric',
             'payment'=>'max:999999|numeric|nullable'
         ]);
     }

@@ -181,16 +181,18 @@
     padding: 8px 0
 }
 
-@media print {
+/*@media print {
     .invoice {
         font-size: 11px!important;
         overflow: hidden!important;
-    }
+    }*/
+    
+
 
     .invoice footer {
         position: absolute;
-        bottom: 10px;
-        page-break-after: always
+        margin-top: 400px;
+        page-break-after: always;
     }
 
     .invoice>div:last-child {
@@ -231,21 +233,23 @@
                     <div class="col invoice-to">
                         <div class="text-gray-light">INVOICE TO:</div>
                         <h2 class="to">{{ $sales->customer->name}}</h2>
-                        <div class="address">{{ $sales->customer->address}}</div>
-                        <div class="email">{{ $sales->customer->email}}</div>
+                        <div class="address">@if(!empty($sales->customer->phone_number))
+                            {{trans('sale.mobile')}} : {{$sales->customer->phone_number}}<br>
+                            @endif</div>
+                        <div class="email">{{trans('sale.payment_type')}}: {{$sales->payment_type}}</div>
                         
                     </div>
                     <div class="col invoice-details">
-                        <h1 class="invoice-id">SALE{{$saleItemsData->sale_id}}</h1>
+                        <h2 class="invoice-id" style="color: #0c0028;">YAR00{{$saleItemsData->sale_id}}</h2>
                         <div class="date">Date: {{ Carbon\Carbon::now() }}</div>
-                        <div class="date">Employee: {{$sales->user->name}}</div>
+                        <div class="date">Attendant: {{$sales->user->name}}</div>
                     </div>
                 </div>
                 <div class="table-responsive">
                 <table class="table">
                     <thead>
                         <tr>
-                            <th scope="col">ITEM</th>
+                            <th scope="col">ITEM - MODEL</th>
                             <th scope="col">PRICE</th>
                             <th scope="col">QTY</th>
                             <th scope="col">TOTAL</th>
@@ -254,7 +258,7 @@
                     <tbody>
                     @foreach($saleItems as $value)
                             <tr>
-                                <td scope="col" style="background:#0c0028; color:white">  <h5>{{$value->item->item_name}}</h5></td>
+                                <td scope="col" style="background:#0c0028; color:white">  <h5>{{$value->item->item_name}} - {{$value->item->size}}</h5></td>
                                 <td scope="col"style="background:#0c0028;color:white;">   <h5>&#x20A6; &nbsp; {{$value->selling_price}}</h5></td>
                                 <td scope="col"style="background:#0c0028;color:white">   <h5>{{$value->quantity}}</h5></td>
                                 <td scope="col"style="background:#0c0028;color:white">   <h5>&#x20A6; &nbsp;{{$value->total_selling}}</h5></td>
@@ -298,8 +302,8 @@
                 </div>
             </main>
             <footer>
-                 <dl class="dl-horizontal">
-                <div style="color: red;"><b>Dealers In All Kinds Of Electronic Appliances And General Contractors</b></div>
+                 <dl class="dl-horizontal" style="margin-bottom: 40px;">
+                <div style="color: red;" ><b>Dealers In All Kinds Of Electronic Appliances And General Contractors</b></div>
                 <div style="color: red;"><b>Refridgerator, Freezers, Home Theatre, Generator, LCD TV, Air Condition,Electric Iron, Blender Kettle ETC</b></div>
             </dl>
             </footer>
