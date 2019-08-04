@@ -26,22 +26,46 @@
             selling_price: item.selling_price
           })
           .success(function(data, status, headers, config) {
-            $scope.saletemp.push(data);
+            
             $http.get("api/saletemp").success(function(data) {
               $scope.saletemp = data;
             });
           });
       };
-
       $scope.updateSaleTemp = function(newsaletemp) {
-        $http
+         ////////////console.log(newsaletemp);
+         $http.get("api/item/"+ newsaletemp.item_id).success(function(data) {
+            item = data;
+            item_quantity = item.quantity;
+            new_qty       = newsaletemp.quantity;
+            qty_diff      = new_qty - item_quantity;
+             //window.alert("qty! = "+item.quantity);
+             //window.alert("new_qty! = "+new_qty);
+                if (new_qty > item_quantity) {
+                   window.alert("The required quantity is "+ qty_diff + " unit(s) greater than available stock");
+                   newsaletemp.quantity = 1;
+                }
+                else{
+                    $http
+                    .put("api/saletemp/" + newsaletemp.id, {
+                        quantity: newsaletemp.quantity,
+                        total_cost: newsaletemp.item.cost_price * newsaletemp.quantity,
+                        total_selling: newsaletemp.item.selling_price * newsaletemp.quantity
+                    })
+                    .success(function(data, status, headers, config) {});
+                }
+          }); 
+        
+      };
+     /* $scope.updateSaleTemp = function(newsaletemp) {
+         $http
           .put("api/saletemp/" + newsaletemp.id, {
             quantity: newsaletemp.quantity,
             total_cost: newsaletemp.item.cost_price * newsaletemp.quantity,
             total_selling: newsaletemp.item.selling_price * newsaletemp.quantity
           })
           .success(function(data, status, headers, config) {});
-      };
+      };*/
       $scope.removeSaleTemp = function(id) {
         $http
           .delete("api/saletemp/" + id)

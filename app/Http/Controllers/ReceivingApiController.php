@@ -56,7 +56,8 @@ class ReceivingApiController extends Controller
      */
     public function show($id)
     {
-        //
+        $Item = Item::find($id);
+        return $Item;
     }
 
     /**
