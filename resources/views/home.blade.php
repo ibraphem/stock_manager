@@ -9,7 +9,7 @@
 					<h1>{{__('Dashboard')}} <br><small>Daily Sales/Outstanding - Statistics</small></h1></div>
 
 				<div class="panel-body">
-
+						{{---dd($incomeexpensechart)---}}
 					<div class="row">
 					  <div class="col-sm-12 margin-bottom-20">
 						<div id="area-chart" ></div>
