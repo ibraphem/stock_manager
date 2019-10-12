@@ -27,7 +27,7 @@
         	<div class="box-body">
 
 					<table class="table table-bordered">
-					<tr><td>{{__('UPC/EAN/ISBN')}}</td><td>{{ $item->upc_ean_isbn }}</td></tr>
+					<tr><td>Item Reference</td><td>{{ $item->upc_ean_isbn }}</td></tr>
 					<tr><td>{{trans('item.item_name')}}</td><td>{{ $item->item_name }}</td></tr>
 					<tr><td>{{trans('item.current_quantity')}}</td><td>{{ $item->quantity }}</td></tr>
 					</table>
