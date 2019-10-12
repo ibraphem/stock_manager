@@ -94,13 +94,13 @@ class HomeController extends Controller
             $weeklydues    = Sale::whereBetween('created_at', [ $day.' 00:00:00', $day.' 23:59:59'])->sum('dues');
             $chart = [
                 'y' => $day,
-                'a' => $weeklyexpense,
+                'a' => $weeklydues,
                 'b' => $weeklyincome,
             ];
             $chartArray[] =  $chart;
            
         }
-        //dd("Saless");
+        //dd($chartArray);
         return $chartArray;
     }
 

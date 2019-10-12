@@ -1,4 +1,4 @@
-// for sales and recevings graphs
+// for sales and outstanding graphs
 var task = document.getElementById("chartData").value;
 var taskVal = JSON.parse(task);
 var data = taskVal,
