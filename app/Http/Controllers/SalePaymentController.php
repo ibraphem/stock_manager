@@ -51,7 +51,7 @@ class SalePaymentController extends Controller
         $sale = Sale::findOrFail($request->sale_id);
         $sale->payment = $sale->payment + $request->payment;
         $dues = $sale->dues = $sale->dues - $request->payment;
-        if($due = 0.00)$sale->status = 1;
+        if($dues == 0.00)$sale->status = 1;
         $sale->update();
         $payment->user_id = Auth::user()->id;
         $payment->dues = $dues;
@@ -60,11 +60,11 @@ class SalePaymentController extends Controller
         $customer = Customer::where('id', $sale->customer_id)->first();
         $customer->prev_balance = $customer->prev_balance - $request->payment;
         $customer->update();
-        if($due = 0.00){
-            Session::flash('message', __('Sales Payment added successfully and The sale is now Completed!'));
+        if($dues == 0.00){
+            Session::flash('message', __('Sales payment added successfully and the sale is now Completed!'));
         }
         else{
-            Session::flash('message', __('Sales Payment added successfully!'));
+            Session::flash('message', __('Sales payment added successfully!'));
         }
         
         return redirect()->back();

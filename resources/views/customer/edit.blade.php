@@ -69,7 +69,7 @@
 							@if(isset($customer))
 						{{ Form::number('prev_balance', null, ['class' => 'form-control', 'readonly'=>'' ]) }}
 								@else
-								{{ Form::number('prev_balance', 0, ['class' => 'form-control', 'readonly'=>'']) }}
+								{{ Form::number('prev_balance', 0, ['class' => 'form-control']) }}
 								@endif
 					</div>
 					</div>

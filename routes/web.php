@@ -16,7 +16,7 @@ Route::group(['middleware' => 'languange'], function () {
 
 
     Auth::routes();
-
+    Route::get('customers/debtors','CustomerController@debtors')->name('customers.debtors');
     Route::resource('customers', 'CustomerController');
     Route::resource('items', 'ItemController');
     Route::post('item/customcreate', 'ItemController@customCreate')->name('items.customcreate');

@@ -17,7 +17,25 @@
           <li class="header">MAIN NAVIGATION</li>
           @if(auth()->user()->hasPermissionTo('customers.index'))
             <li class=""><a href="{{ url('/') }}"><i class="fa fa-dashboard"></i> <span>{{trans('menu.dashboard')}}</span></a></li>
-            <li class="{{(Request::is('customers')) ? 'active' : ''}} "><a href="{{ url('/customers') }}"><i class="fa fa-users"></i> <span>{{trans('menu.customers')}}</span></a></li>
+           <!-- <li class="{{(Request::is('customers')) ? 'active' : ''}} "><a href="{{ url('/customers') }}"><i class="fa fa-users"></i> <span>{{trans('menu.customers')}}</span></a></li>-->
+     <!-- @if(auth()->user()->hasPermissionTo('customers.index')) -->
+          <li class="{{(Request::is('customers')) ? 'active' : ''}} treeview">
+            <a href="#">
+              <i class="fa fa-users"></i> <span>Customers</span>
+              <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+              </span>
+            </a>
+            <ul class="treeview-menu">
+            <!--  <li class="{{(Request::is('reports/receivings')) ? 'active' : ''}}"><a href="{{ url('/reports/receivings') }}"><i class="fa fa-circle-o"></i> {{trans('menu.receivings_report')}}</a></li> -->
+              <li class="{{(Request::is('customers')) ? 'active' : ''}}"><a href="{{ url('/customers') }}"><i class="fa fa-circle-o"></i> All Customers </a></li>
+              <li class="{{(Request::is('customers')) ? 'active' : ''}} "><a href="{{ url('/customers/debtors') }}"><i class="fa fa-circle-o"></i> Debtors </a></li>
+            <!--  <li class="{{(Request::is('reports/dailyreport/create')) ? 'active' : ''}}"><a href="{{ url('/reports/dailyreport/create') }}"><i class="fa fa-circle-o"></i> {{trans('menu.daily_report')}}</a></li>-->
+            </ul>
+          </li>
+      
+           <!-- @endif -->
+
           @endif
           @if(auth()->user()->hasPermissionTo('items.index'))
 		    <li class="{{(Request::is('items')) ? 'active' : ''}} "><a href="{{ url('/items') }}"><i class="fa fa-bars"></i> <span>Stocks</span></a></li>
