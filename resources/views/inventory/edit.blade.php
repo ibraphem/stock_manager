@@ -29,15 +29,16 @@
 					<table class="table table-bordered">
 					<tr><td>Item Reference</td><td>{{ $item->upc_ean_isbn }}</td></tr>
 					<tr><td>{{trans('item.item_name')}}</td><td>{{ $item->item_name }}</td></tr>
-					<tr><td>{{trans('item.current_quantity')}}</td><td>{{ $item->quantity }}</td></tr>
+					<tr><td>{{trans('item.current_quantity')}}</td><td id="tableQty">{{ $item->quantity }}</td></tr>
+					
 					</table>
 					<div class="row" style="padding: 20px 0;">
 						{{ Form::model($item->inventory, ['route' => ['inventory.update', $item->id], 'method' => 'PUT']) }}
 						<div class="col-sm-2 col-sm-offset-1">
 						{{trans('item.inventory_to_add_subtract')}} *
 						</div>
-						<div class="col-sm-2">
-						{{ Form::text('in_out_qty', null, ['class' => 'form-control', 'required']) }}
+						<div class="col-sm-2" onmouseout="checkQty()">
+						{{ Form::text('in_out_qty', null, ['id' => 'formQty'], ['class' => 'form-control', 'required']) }}
 						</div>
 						<div class="col-sm-1">
 						{{trans('item.comments')}}
@@ -83,3 +84,32 @@
     <!-- /.content -->
   </div>
 @endsection
+@section('script')
+<script>
+        
+        function checkQty(){
+            
+            var x = document.getElementById("formQty").value;//required qty
+            var y = document.getElementById("tableQty").innerHTML;//stock qty
+            var x = x.trim();
+            var y = y.trim();
+            var x = parseInt(x);
+            var y = parseInt(y);
+           // alert(x);
+           // alert(y);
+            
+            if(x < 0 && Math.abs(x) > y){
+                var z = Math.abs(x)-y;
+                alert("Required quantity is " + z +" unit(s) higher than available stock");
+                return false;
+            } else{
+                return true;
+            }
+            
+            //tableQty(x);            
+                    
+        }
+
+
+    </script>
+	@endsection

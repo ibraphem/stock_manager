@@ -107,7 +107,7 @@
     </div>
     <!-- /.social-auth-links -->
 
-    <a href="{{ route('password.request') }}">I forgot my password</a><br>
+   <!-- <a href="{{ route('password.request') }}">I forgot my password</a><br>-->
     {{--<a href="{{ url('/register') }}" class="text-center">Register a new membership</a>--}}
 
   </div>

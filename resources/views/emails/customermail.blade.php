@@ -103,7 +103,7 @@ a[x-apple-data-detectors] {
                    <table width="100%" cellspacing="0" cellpadding="0" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px;"> 
                      <tr style="border-collapse:collapse;"> 
                       <td align="center" style="padding:0;Margin:0;padding-bottom:20px;"> <img 
-                        src="http://stock.test/images/fpos.png" alt style="display:block;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic;" width="154"></td> 
+                        src="https://dalemo.yareece.com.ng/images/fpos.png" alt style="display:block;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic;" width="154"></td> 
                      </tr> 
                    </table> </td> 
                  </tr> 
@@ -128,8 +128,8 @@ a[x-apple-data-detectors] {
                      <tr style="border-collapse:collapse;"> 
                       <td bgcolor="#fcfcfc" align="left" style="padding:0;Margin:0;padding-top:10px;padding-left:20px;padding-right:20px;"> <p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:14px;font-family:helvetica, 'helvetica neue', arial, verdana, sans-serif;line-height:21px;color:#333333;">
                         Hi @if(!empty($data)){{$data['name']}} @endif, 
-                        We’re glad to have you onboard! Kindly use the login details below to records all sales attributed 
-                        to your department.<br></p></td> 
+                        We’re glad to have you onboard! Kindly use the login details below to record all sales attributed 
+                        to your branch.<br></p></td> 
                      </tr> 
                    </table> </td> 
                  </tr> 
@@ -148,8 +148,8 @@ a[x-apple-data-detectors] {
                       <td align="center" style="padding:0;Margin:0;"> <p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:16px;font-family:helvetica, 'helvetica neue', arial, verdana, sans-serif;line-height:24px;color:#64434A;">Login Username: @if(!empty($data)){{$data['username']}} @endif</p><p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:16px;font-family:helvetica, 'helvetica neue', arial, verdana, sans-serif;line-height:24px;color:#64434A;">Password: @if(!empty($data)){{$data['password']}} @endif</p></td> 
                      </tr> 
                      <tr style="border-collapse:collapse;"> 
-                      <td align="center" style="Margin:0;padding-left:10px;padding-right:10px;padding-top:20px;padding-bottom:20px;"> <span class="es-button-border" style="border-style:solid;border-color:transparent;background:#F8F3EF none repeat scroll 0% 0%;border-width:0px;display:inline-block;border-radius:3px;width:auto;"> <a href="http://stock.test" class="es-button" target="_blank" style="mso-style-priority:100 !important;text-decoration:none;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:roboto, 'helvetica neue', helvetica, arial, sans-serif;font-size:17px;color:#64434A;border-style:solid;border-color:#F8F3EF;border-width:10px 20px 10px 20px;display:inline-block;background:#F8F3EF none repeat scroll 0% 0%;border-radius:3px;font-weight:normal;font-style:normal;line-height:20px;width:auto;text-align:center;">Login Here</a> </span><br>
-                        <a href="http://stock.test/password/reset" style="mso-style-priority:100 !important;text-decoration:none;" target="_blank">Click Here to Reset your password with you registered email</a>
+                      <td align="center" style="Margin:0;padding-left:10px;padding-right:10px;padding-top:20px;padding-bottom:20px;"> <span class="es-button-border" style="border-style:solid;border-color:transparent;background:#F8F3EF none repeat scroll 0% 0%;border-width:0px;display:inline-block;border-radius:3px;width:auto;"> <a href="https://dalemo.yareece.com.ng" class="es-button" target="_blank" style="mso-style-priority:100 !important;text-decoration:none;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:roboto, 'helvetica neue', helvetica, arial, sans-serif;font-size:17px;color:#64434A;border-style:solid;border-color:#F8F3EF;border-width:10px 20px 10px 20px;display:inline-block;background:#F8F3EF none repeat scroll 0% 0%;border-radius:3px;font-weight:normal;font-style:normal;line-height:20px;width:auto;text-align:center;">Login Here</a> </span><br>
+                        <!--<a href="https://dalemo.yareece.com.ng/password/reset" style="mso-style-priority:100 !important;text-decoration:none;" target="_blank">Click Here to Reset your password with you registered email</a>-->
                        </td> 
                      </tr> 
                    </table> </td> 
@@ -264,17 +264,19 @@ a[x-apple-data-detectors] {
                         You are receiving this email because you are staff of YAREECE VENTURES.</p></td> 
                      </tr> 
                      <tr style="border-collapse:collapse;"> 
-                      <td align="center" style="padding:0;Margin:0;padding-bottom:5px;"> <p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:14px;font-family:helvetica, 'helvetica neue', arial, verdana, sans-serif;line-height:21px;color:#FFFFFF;">You can also <a target="_blank" href="http://stock.test" style="-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:helvetica, 'helvetica neue', arial, verdana, sans-serif;font-size:14px;text-decoration:none;color:#F6A1B4;">Login</a> from here.</p></td> 
+                      <td align="center" style="padding:0;Margin:0;padding-bottom:5px;"> <p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:14px;font-family:helvetica, 'helvetica neue', arial, verdana, sans-serif;line-height:21px;color:#FFFFFF;">You can also <a target="_blank" href="https://dalemo.yareece.com.ng" style="-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:helvetica, 'helvetica neue', arial, verdana, sans-serif;font-size:14px;text-decoration:none;color:#F6A1B4;">Login</a> from here.</p></td> 
                      </tr> 
                      <tr style="border-collapse:collapse;"> 
-                      <td esdev-links-color="#999999" align="center" style="padding:0;Margin:0;padding-bottom:5px;"> <p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:14px;font-family:helvetica, 'helvetica neue', arial, verdana, sans-serif;line-height:21px;color:#FFFFFF;">13B, Baale Animashaun Road, Dalemo Alakuko, Lagos.</p></td> 
+                      <td esdev-links-color="#999999" align="center" style="padding:0;Margin:0;padding-bottom:5px;"> <p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:14px;font-family:helvetica, 'helvetica neue', arial, verdana, sans-serif;line-height:21px;color:#FFFFFF;">
+                          Dealers in Kinds of Electric Appliances and General Contractors, Refrigerator, Freezer, Home theatre, Generator, LCD TV, Flat Screen TV, Air Condition, Electric Iron, Blender, Kettle ,etc.
+                      </p></td> 
                      </tr> 
                      <tr style="border-collapse:collapse;"> 
                         <td esdev-links-color="#999999" align="center" style="padding:0;Margin:0;padding-bottom:5px;"> <p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:14px;font-family:helvetica, 'helvetica neue', arial, verdana, sans-serif;line-height:21px;color:#FFFFFF;">08033674382, 08026719488.</p></td> 
                        </tr> 
                        <tr style="border-collapse:collapse;"> 
                         <td esdev-links-color="#999999" align="center" style="padding:0;Margin:0;padding-bottom:5px;"> <p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:14px;font-family:helvetica, 'helvetica neue', arial, verdana, sans-serif;line-height:21px;color:#FFFFFF;">
-                            yareeceventures@gmail.com</p></td> 
+                            sales@yareece.com.ng</p></td> 
                        </tr> 
                    </table> </td> 
                  </tr> 

@@ -158,10 +158,10 @@ if (trim($customer->avatar) != 'no-foto.png') {
                                   <li><a href="#" data-toggle="modal" data-target="#myModal{{$value->id}}"><i class="fa fa-money"></i>  {{__('Payment')}}</a>
                                   
                                   @endif
-                                  <li>
+                              <!--    <li>
                                   <a href="{{url('sales/'. $value->id.'/edit')}}" onclick="return confirm('are you sure?')"><i class="fa fa-trash-o"></i> {{__('Close')}}
                                   </a>
-                                  </li>
+                                  </li> -->
                                 </ul>
                                 <div class="modal fade" id="myModal{{$value->id}}" role="dialog">
                                   <div class="modal-dialog modal-sm">

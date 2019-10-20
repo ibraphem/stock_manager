@@ -219,12 +219,12 @@
                     <sup style="color: red;"><b>REG: 887372</b></sup>
                         <h2 class="name" style="color: #0c0028;" >
                             
-                            YAREECEE VENTURES
+                            YAREECE VENTURES
                         </h2>
                         <div><span style="color: red;"><b>Head Office:</b></span><span style="color: #0c0028;"> 13B, Baale Animashaun Road, Dalemo, Alakuko, Lagos</span></div>
                         <div><span style="color: red;"><b>Annex Office:</b></span><span style="color: #0c0028;"> 48, Fakoya Street, Egbeda, Akowonjo, Lagos</span></div>
                        <div> <span style="color: red;"><b>Telephone No:</b></span><span style="color: #0c0028;"> 08033674382, 08025719488</span></div>
-                      <div>  <span style="color: red;"><b>Email:</b></span><span style="color: #0c0028;"> yareeceeventures@gmail.com</span></div>
+                      <div>  <span style="color: red;"><b>Email:</b></span><span style="color: #0c0028;"> yareeceventures@gmail.com</span></div>
                     </div>
                 </div>
             </header>

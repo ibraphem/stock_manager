@@ -200,7 +200,7 @@ class ItemController extends Controller
             'item_name'=>'required|max:90',
            // 'cost_price'=>'required|numeric|max:9999999',
             'selling_price'=>'required|numeric|max:9999999',
-           // 'quantity'=>'required|integer|max:999999999'
+            'quantity'=>'required|integer|max:999999999'
         ]);
     }
 }
