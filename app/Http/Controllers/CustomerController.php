@@ -17,6 +17,8 @@ class CustomerController extends Controller
 {
     use FileUploadTrait;
 
+    public $all_debtors= array();
+
     public function __construct()
     {
         $this->middleware('auth');
@@ -87,7 +89,14 @@ class CustomerController extends Controller
         $total_customer_payment = CustomerPayment::where('customer_id', $id)->sum('payment');
         $saleReport_dues = Sale::where([['customer_id', $id],['dues', '>', 0.00], ['status', '=', 0]])->paginate(10);
         $saleReport_completed = Sale::where([['customer_id', $id],['status', '=', 1]])->where([['customer_id', $id],['dues', '=', 0.00]])->paginate(10);
+        /*
+        $builder = $saleReport_completed->tosql();
+        $query = str_replace(array('?'), array('\'%s\''), $builder->toSql());
+        $query = vsprintf($query, $builder->getBindings());
+        dump($query);*/
+        //dd($saleReport_completed);
         $customer_payments = CustomerPayment::where('customer_id', $id)->latest()->paginate(3);
+
         $sale_payments = DB::select("select * from sales INNER JOIN sale_payments ON sales.id = sale_payments.sale_id where customer_id =".$id." ORDER BY sale_payments.id DESC LIMIT 5");
        
         $total_customer_payment = $sum_customer_payment+ $total_dues;
@@ -170,5 +179,19 @@ class CustomerController extends Controller
           //  'prev_balance'=>'max:99999999999|numeric',
             'payment'=>'max:999999|numeric|nullable'
         ]);
+    }
+
+     public function debtors()
+    {//
+        $customers = Customer::where([['type', 1],['prev_balance', '>', 0.00]])->latest()->get();
+        foreach($customers as $customer){
+            
+            $id = $customer['id'];
+            $this->total_customer_payment = Sale::where([['customer_id', $id],['dues', '>', 0.00]])->sum('dues');
+            $customer['prev_balance'] = $this->total_customer_payment;
+            $this->all_debtors[] =  $customer;
+        }
+       
+        return view('customer.debts')->with('customer', $this->all_debtors);
     }
 }
