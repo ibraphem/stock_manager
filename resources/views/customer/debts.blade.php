@@ -4,7 +4,7 @@
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-      <h1>{{__('Customer')}}</h1>
+      <h1>{{__('Debtots')}}</h1>
     </section>
     <!-- Main content -->
     <section class="content">
